@@ -12,6 +12,12 @@
     tools:context="com.guo.lab.ReaderActivity">
 
     <Button
+        android:id="@+id/add"
+        android:text="add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
         android:id="@+id/search"
         android:text="search"
         android:layout_width="match_parent"
@@ -19,6 +25,11 @@
     <Button
         android:id="@+id/all"
         android:text="all"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/unregister"
+        android:text="unregister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 </LinearLayout>
