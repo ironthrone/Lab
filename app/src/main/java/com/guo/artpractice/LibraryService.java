@@ -5,9 +5,10 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.os.RemoteException;
 
-import com.guo.art.ILibrary;
 
-import java.util.Arrays;
+import com.guo.rong.ILibrary;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class LibraryService extends Service {
@@ -16,27 +17,30 @@ public class LibraryService extends Service {
 
     private ILibrary library = new ILibrary.Stub() {
 
-        String[] books = {"android","algebra","calculus"};
-        @Override
-        public void basicTypes(int anInt, long aLong, boolean aBoolean, float aFloat, double aDouble, String aString) throws RemoteException {
+        List<Book> books = new ArrayList<>();
 
+        {
+            books.add(new Book("Guo", "Android", 34.0));
+            books.add(new Book("Rong", "History", 44.0));
+            books.add(new Book("Jin", "TongDian", 54.0));
         }
 
         @Override
-        public List<String> getBookList() throws RemoteException {
-            return Arrays.asList(books);
+        public List<Book> getBookList() throws RemoteException {
+            return books;
         }
 
-
         @Override
-        public boolean searchBook(String name) throws RemoteException {
-            for (String book : books) {
-                if (name.equals(book)) {
-                    return true;
+        public Book searchBook(String book) throws RemoteException {
+            for (Book boo :
+                    books) {
+                if (boo.getName().equals(book)) {
+                    return boo;
                 }
             }
-            return false;
+            return null;
         }
+
     };
 
     @Override

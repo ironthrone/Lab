@@ -11,9 +11,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-import com.guo.art.ILibrary;
+import com.guo.rong.ILibrary;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class ReaderActivity extends AppCompatActivity implements View.OnClickListener {
@@ -24,7 +23,7 @@ public class ReaderActivity extends AppCompatActivity implements View.OnClickLis
         public void onServiceConnected(ComponentName name, IBinder service) {
             library = ILibrary.Stub.asInterface(service);
             try {
-                service.linkToDeath(deathRecipient,0);
+                service.linkToDeath(deathRecipient, 0);
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
@@ -61,15 +60,21 @@ public class ReaderActivity extends AppCompatActivity implements View.OnClickLis
         switch (v.getId()) {
             case R.id.search:
                 try {
-                    boolean hit = library.searchBook("tianlong");
-                    Log.d(TAG, hit ? "hit" : "miss");
+                    Book book = library.searchBook("Android");
+                    Log.d(TAG, book != null ? book.toString() : "miss");
+                    if (book != null) {
+                        book.setAuthor("World");
+                        book = library.searchBook("Android");
+
+                        Log.d(TAG, book != null ? book.toString() : "miss");
+                    }
                 } catch (RemoteException e) {
                     e.printStackTrace();
                 }
                 break;
             case R.id.all:
                 try {
-                    List<String> books = library.getBookList();
+                    List<Book> books = library.getBookList();
                     Log.d(TAG, books.toString());
                 } catch (RemoteException e) {
                     e.printStackTrace();
