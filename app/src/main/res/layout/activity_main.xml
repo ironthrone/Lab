@@ -12,4 +12,10 @@
     tools:context="com.guo.lab.MainActivity">
 
 
+    <Button
+        android:id="@+id/read"
+        android:text="read"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
 </LinearLayout>

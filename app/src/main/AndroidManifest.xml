@@ -20,8 +20,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
+        <!-- android:launchMode="singleTask" /> -->
+        <activity android:name=".ReaderActivity"></activity>
+        <service
+            android:name=".LibraryService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":remote" />
 
     </application>
 
