@@ -7,7 +7,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.blankj.utilcode.utils.ToastUtils;
-import com.guo.artpractice.Book;
+import com.guo.artpractice.library.Book;
 import com.guo.artpractice.R;
 import com.guo.rong.ILibrary;
 

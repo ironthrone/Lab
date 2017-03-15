@@ -1,4 +1,4 @@
-package com.guo.artpractice;
+package com.guo.artpractice.library;
 
 import android.os.Parcel;
 import android.os.Parcelable;

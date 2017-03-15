@@ -1,4 +1,4 @@
-package com.guo.artpractice;
+package com.guo.artpractice.library;
 
 import android.os.RemoteCallbackList;
 import android.os.RemoteException;

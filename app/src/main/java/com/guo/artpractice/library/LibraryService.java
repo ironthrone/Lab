@@ -1,19 +1,11 @@
-package com.guo.artpractice;
+package com.guo.artpractice.library;
 
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
-import android.os.RemoteCallbackList;
-import android.os.RemoteException;
-import android.util.Log;
 
 
 import com.guo.rong.ILibrary;
-import com.guo.rong.IOnNewBookArriveListener;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 public class LibraryService extends Service {
     private static final String TAG = LibraryService.class.getSimpleName();
