@@ -40,12 +40,19 @@ public class ReaderActivity extends AppCompatActivity implements View.OnClickLis
         @Override
         public void onServiceDisconnected(ComponentName name) {
 //            bindService()
+            Log.d(TAG, "onServiceDisconnected "+Thread.currentThread().toString());
         }
     };
 
     IBinder.DeathRecipient deathRecipient = new IBinder.DeathRecipient() {
         @Override
         public void binderDied() {
+
+            Log.d(TAG, "binderdied "+Thread.currentThread().toString());
+            if (library != null) {
+                library.asBinder().unlinkToDeath(deathRecipient, 0);
+            }
+
             bindService(new Intent(ReaderActivity.this, LibraryService.class), connection, Service.BIND_AUTO_CREATE);
         }
     };
@@ -58,6 +65,8 @@ public class ReaderActivity extends AppCompatActivity implements View.OnClickLis
             Log.d(TAG, book.toString());
 
             // 运行在主线程
+
+            Log.d(TAG, "onNewBookArrive  "+Thread.currentThread().toString());
             Log.d(TAG, Thread.currentThread() == Looper.getMainLooper().getThread() ? "main" : "background");
             // 根据Pid获取进程名称，运行在当前进程
             int pid = android.os.Process.myPid();
@@ -87,12 +96,21 @@ public class ReaderActivity extends AppCompatActivity implements View.OnClickLis
                 .setOnClickListener(this);
         findViewById(R.id.unregister)
                 .setOnClickListener(this);
+        findViewById(R.id.register)
+                .setOnClickListener(this);
     }
 
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.register:
+                try {
+                    library.registerOnNewBookArriveListener(onNewBookArriveListener);
+                } catch (RemoteException e) {
+                    e.printStackTrace();
+                }
+                break;
             case R.id.unregister:
                 try {
                     library.unregisterOnNewBookArriveListener(onNewBookArriveListener);
@@ -124,7 +142,7 @@ public class ReaderActivity extends AppCompatActivity implements View.OnClickLis
                 break;
             case R.id.add:
                 try {
-                    library.addBook(new Book("Stock","Guo",44));
+                    library.addBook(new Book("Stock", "Guo", 44));
                 } catch (RemoteException e) {
                     e.printStackTrace();
                 }

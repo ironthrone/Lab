@@ -22,13 +22,20 @@
         </activity>
         <!-- android:launchMode="singleTask" /> -->
 
-        <activity android:name=".ReaderActivity"></activity>
+        <activity android:name=".ReaderActivity" />
+
         <service
             android:name=".LibraryService"
             android:enabled="true"
             android:exported="true"
             android:process=":remote" />
+        <service
+            android:name=".binderpool.BinderPoolService"
+            android:process=":remote"
+            android:enabled="true"
+            android:exported="true" />
 
+        <activity android:name=".binderpool.BinderPoolClientActivity"></activity>
     </application>
 
 </manifest>
