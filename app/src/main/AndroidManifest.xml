@@ -22,10 +22,10 @@
         </activity>
         <!-- android:launchMode="singleTask" /> -->
 
-        <activity android:name=".ReaderActivity" />
+        <activity android:name=".library.ReaderActivity" />
 
         <service
-            android:name=".LibraryService"
+            android:name=".library.LibraryService"
             android:enabled="true"
             android:exported="true"
             android:process=":remote" />

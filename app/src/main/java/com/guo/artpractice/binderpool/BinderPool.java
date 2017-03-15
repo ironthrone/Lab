@@ -9,16 +9,11 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.os.RemoteException;
 
-import com.guo.artpractice.Book;
-import com.guo.artpractice.ILibraryImp;
+import com.guo.artpractice.library.ILibraryImp;
 import com.guo.rong.IBinderPool;
 import com.guo.rong.ILibrary;
-import com.guo.rong.IOnNewBookArriveListener;
 
-import java.util.List;
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 /**
  * Created by Administrator on 2017/3/15.

@@ -1,14 +1,12 @@
 package com.guo.artpractice;
 
 import android.content.Intent;
-import android.content.res.Configuration;
-import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import com.guo.artpractice.binderpool.BinderPoolClientActivity;
+import com.guo.artpractice.library.ReaderActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
