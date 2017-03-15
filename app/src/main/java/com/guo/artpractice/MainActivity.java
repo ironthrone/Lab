@@ -8,7 +8,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity  {
+import com.guo.artpractice.binderpool.BinderPoolClientActivity;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
@@ -17,14 +19,22 @@ public class MainActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         findViewById(R.id.read)
-                .setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        startActivity(new Intent(MainActivity.this,ReaderActivity.class));
-                    }
-                });
+                .setOnClickListener(this);
+        findViewById(R.id.binder_pool)
+                .setOnClickListener(this);
 
     }
 
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.read:
+                        startActivity(new Intent(MainActivity.this,ReaderActivity.class));
+                break;
+            case R.id.binder_pool:
+                        startActivity(new Intent(MainActivity.this,BinderPoolClientActivity.class));
+                break;
+        }
+    }
 }
