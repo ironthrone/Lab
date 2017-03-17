@@ -1,6 +1,4 @@
-package com.guo.artpractice.model;
-
-import android.databinding.Bindable;
+package com.guo.lab.model;
 
 /**
  * Created by Administrator on 2017/3/16.

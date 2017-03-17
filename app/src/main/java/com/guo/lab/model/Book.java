@@ -1,10 +1,9 @@
-package com.guo.artpractice.model;
+package com.guo.lab.model;
 
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
-import android.databinding.Observable;
 
-import com.guo.artpractice.BR;
+import com.guo.lab.BR;
 
 /**
  * Created by Administrator on 2017/3/16.

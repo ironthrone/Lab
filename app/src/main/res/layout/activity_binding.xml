@@ -3,67 +3,86 @@
 
     <data>
 
+        <import type="com.guo.lab.R" />
         <variable
             name="viewModel"
-            type="com.guo.artpractice.viewmodel.BindingViewModel" />
+            type="com.guo.lab.viewmodel.BindingViewModel" />
     </data>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/activity_binding"
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.guo.artpractice.view.BindingActivity">
+        tools:context="com.guo.lab.view.BindingActivity">
 
-        <Button
-            android:id="@+id/toggleVisible"
-            android:text="toggleVisible"
-            android:onClick="@{viewModel::toggleVisible}"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <!--自动的setter-->
-        <Button
-            android:id="@+id/changeAuthor"
-            android:text="toggleVisible"
-            app:onClickListener="@{viewModel::toggleVisible}"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/toggleVisible"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{viewModel::toggleVisible}"
+                android:text="toggleVisible" />
 
-        <ImageView
-            android:src="@mipmap/ic_launcher"
-            app:imageAlpha="@{100}"
-            android:visibility="@{viewModel.androidVisibility}"
-            android:layout_width="100dp"
-            android:layout_height="100dp" />
-        <TextView
-            android:id="@+id/text"
-            android:text="@{viewModel.observableWord}"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:id="@+id/author"
-            android:text="@{viewModel.observableBook.author}"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            <!--自动的setter-->
+            <Button
+                android:id="@+id/changeAuthor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="toggleVisible"
+                app:onClickListener="@{viewModel::toggleVisible}" />
 
-        <TextView
-            android:text='@{viewModel.tianlong.price+""}'
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:text="ObservableArrayMap"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:text='@{viewModel.observableArrayMap["name"]}'
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:text='@{viewModel.observableArrayMap["position"]}'
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@mipmap/ic_launcher"
+                android:visibility="@{viewModel.androidVisibility}"
+                app:imageAlpha="@{100}" />
 
-    </LinearLayout>
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:visibility="@{viewModel.androidVisibility}"
+                app:imageAlpha="@{100}"
+                app:loadImage="@{R.drawable.ic_launcher}" />
+
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.observableWord}" />
+
+            <TextView
+                android:id="@+id/author"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.observableBook.author}" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text='@{viewModel.tianlong.price+""}' />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ObservableArrayMap" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text='@{viewModel.observableArrayMap["name"]}' />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text='@{viewModel.observableArrayMap["position"]}' />
+
+
+        </LinearLayout>
+    </ScrollView>
 </layout>

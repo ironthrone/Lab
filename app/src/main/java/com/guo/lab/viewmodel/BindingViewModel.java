@@ -1,13 +1,19 @@
-package com.guo.artpractice.viewmodel;
+package com.guo.lab.viewmodel;
 
+import android.databinding.ObservableArrayList;
 import android.databinding.ObservableArrayMap;
 import android.databinding.ObservableField;
 import android.databinding.ObservableInt;
+import android.databinding.ObservableList;
 import android.view.View;
 
-import com.guo.artpractice.R;
-import com.guo.artpractice.model.Book;
-import com.guo.artpractice.model.BookNormal;
+import com.guo.lab.BR;
+import com.guo.lab.R;
+import com.guo.lab.model.Book;
+import com.guo.lab.model.BookNormal;
+import com.kelin.mvvmlight.base.ViewModel;
+
+import me.tatarka.bindingcollectionadapter.ItemView;
 
 /**
  * Created by Administrator on 2017/3/15.
@@ -20,10 +26,12 @@ public class BindingViewModel {
     public ObservableField<BookNormal> observableBook = new ObservableField<>(new BookNormal("天龙八部", 32));
     public ObservableArrayMap<String, String> observableArrayMap = new ObservableArrayMap<>();
 
+
     public BindingViewModel() {
         androidVisibility = new ObservableInt(View.VISIBLE);
         observableArrayMap.put("author", "金庸");
         observableArrayMap.put("position", "临江月");
+
     }
 
 

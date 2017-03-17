@@ -1,11 +1,12 @@
-package com.guo.artpractice;
+package com.guo.lab;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.guo.artpractice.view.BindingActivity;
+import com.guo.lab.view.BindingActivity;
+import com.guo.lab.view.ListBindingActivity;
 
 
 public class MainActivity extends AppCompatActivity  {
@@ -21,6 +22,14 @@ public class MainActivity extends AppCompatActivity  {
                     @Override
                     public void onClick(View v) {
                         startActivity(new Intent(MainActivity.this, BindingActivity.class));
+                    }
+                });
+
+        findViewById(R.id.list_binding)
+                .setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(MainActivity.this, ListBindingActivity.class));
                     }
                 });
 
