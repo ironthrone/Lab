@@ -8,9 +8,14 @@
     android:layout_height="match_parent"
     tools:context="com.guo.lab.MainActivity">
 
-    <!--<com.guo.artpractice.ScrollerView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent" />-->
+    <Button
+        android:id="@+id/horizontal_scroll"
+        android:text="horizontalscroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <com.guo.artpractice.ScrollerView
+        android:layout_width="match_parent"
+        android:layout_height="400dp" />
 
     <com.guo.artpractice.WithACircleView
         app:circle_color="@color/colorPrimary"
