@@ -20,7 +20,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text='@{viewModel.upload}' />
+            <Button
+                android:id="@+id/get_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{viewModel::toggleVisible}"
+                android:text="get_edit_text" />
             <Button
                 android:id="@+id/toggleVisible"
                 android:layout_width="match_parent"
