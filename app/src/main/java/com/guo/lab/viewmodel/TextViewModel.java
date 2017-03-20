@@ -1,5 +1,10 @@
 package com.guo.lab.viewmodel;
 
+import android.view.View;
+import android.widget.TextView;
+
+import com.blankj.utilcode.utils.ToastUtils;
+
 /**
  * Created by Administrator on 2017/3/17.
  */
@@ -9,5 +14,10 @@ public class TextViewModel {
 
     public TextViewModel(String haohan) {
         this.haohan = haohan;
+    }
+
+
+    public void echo(TextView view) {
+        ToastUtils.showShortToastSafe(view.getText().toString());
     }
 }

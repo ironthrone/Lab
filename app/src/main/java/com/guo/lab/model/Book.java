@@ -13,6 +13,7 @@ public class Book extends BaseObservable{
 
     @Bindable public String author;
     public double price;
+    public String name;
 
     public Book(String author, double price) {
         this.author = author;

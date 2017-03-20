@@ -4,6 +4,7 @@ import android.databinding.ObservableArrayList;
 import android.databinding.ObservableList;
 
 import com.guo.lab.R;
+import com.guo.lab.BR;
 
 import me.tatarka.bindingcollectionadapter.ItemView;
 
@@ -12,7 +13,7 @@ import me.tatarka.bindingcollectionadapter.ItemView;
  */
 
 public class ListBindingViewModel {
-    public ItemView itemView = ItemView.of(com.guo.lab.BR.viewModel, R.layout.item_text);
+    public ItemView itemView = ItemView.of(BR.viewModel, R.layout.item_text);
     public ObservableList<TextViewModel> itemViewModels = new ObservableArrayList<>();
 
     public ListBindingViewModel() {

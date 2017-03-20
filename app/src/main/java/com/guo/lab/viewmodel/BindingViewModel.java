@@ -21,7 +21,7 @@ import me.tatarka.bindingcollectionadapter.ItemView;
 
 public class BindingViewModel {
     public ObservableInt androidVisibility;
-    public Book tianlong = new Book("天龙八部", 32);
+    public Book tianlong = new Book("金庸", 32);
     public ObservableField<String> observableWord = new ObservableField<>("杏子林中");
     public ObservableField<BookNormal> observableBook = new ObservableField<>(new BookNormal("天龙八部", 32));
     public ObservableArrayMap<String, String> observableArrayMap = new ObservableArrayMap<>();
@@ -42,8 +42,8 @@ public class BindingViewModel {
         observableWord.set("虽万千人吾往矣");
                 break;
             case R.id.changeAuthor:
-//                tianlong.setAuthor("jinyong");
-                observableBook.get().author = "悄立雁门，绝壁无余字";
+                tianlong.setAuthor("金庸新");
+//                observableBook.get().author = "悄立雁门，绝壁无余字";
                 break;
         }
     }

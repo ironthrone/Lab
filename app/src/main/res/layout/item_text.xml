@@ -4,7 +4,7 @@
     <data>
 
         <variable
-            name="viewModel"
+            name="itemViewModel"
             type="com.guo.lab.viewmodel.TextViewModel" />
     </data>
 
@@ -13,11 +13,12 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+            <!--android:onClick="@{itemViewModel.echo}"-->
         <TextView
             android:id="@+id/text"
             android:layout_width="match_parent"
             android:layout_height="?attr/listPreferredItemHeightSmall"
             android:gravity="center_vertical"
-            android:text="@{viewModel.haohan}" />
+            android:text="@{itemViewModel.haohan}" />
     </LinearLayout>
 </layout>
