@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_layout_animation"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutAnimation="@anim/anim_layout"
+    android:orientation="vertical"
+    tools:context="com.guo.artpractice.LayoutAnimationActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="?attr/listPreferredItemHeightSmall"
+        android:background="@color/colorAccent"
+        android:gravity="center_vertical"
+        android:text="仆固怀恩" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="?attr/listPreferredItemHeightSmall"
+        android:background="@color/colorAccent"
+        android:gravity="center_vertical"
+        android:text="阿史那舍尔" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="?attr/listPreferredItemHeightSmall"
+        android:background="@color/colorAccent"
+        android:gravity="center_vertical"
+        android:text="契苾何力" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="?attr/listPreferredItemHeightSmall"
+        android:background="@color/colorAccent"
+        android:gravity="center_vertical"
+        android:text="高仙芝" />
+</LinearLayout>

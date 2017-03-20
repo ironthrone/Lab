@@ -21,6 +21,13 @@ public class MainActivity extends AppCompatActivity  {
                         startActivity(new Intent(MainActivity.this,HorizontalPagerActivity.class));
                     }
                 });
+        findViewById(R.id.layout_animation)
+                .setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(MainActivity.this,LayoutAnimationActivity.class));
+                    }
+                });
 
     }
 
