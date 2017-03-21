@@ -21,7 +21,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".HorizontalPagerActivity" />
-        <activity android:name=".LayoutAnimationActivity"></activity>
+        <activity android:name=".LayoutAnimationActivity" />
+        <activity android:name=".AnimatorActivity"></activity>
     </application>
 
 </manifest>

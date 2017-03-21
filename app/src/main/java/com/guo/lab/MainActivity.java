@@ -28,6 +28,13 @@ public class MainActivity extends AppCompatActivity  {
                         startActivity(new Intent(MainActivity.this,LayoutAnimationActivity.class));
                     }
                 });
+        findViewById(R.id.property_animator)
+                .setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(MainActivity.this,AnimatorActivity.class));
+                    }
+                });
 
     }
 

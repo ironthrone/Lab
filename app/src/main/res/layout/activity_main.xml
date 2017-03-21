@@ -18,6 +18,12 @@
         android:text="layoutanimation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/property_animator"
+        android:text="PropertyAnimator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <com.guo.artpractice.ScrollerView
         android:layout_width="match_parent"
         android:layout_height="400dp" />

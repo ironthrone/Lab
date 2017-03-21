@@ -41,6 +41,7 @@ public class ScrollerView extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        //接收事件
         mVelocityTracker.addMovement(event);
         float x = event.getX();
         float y = event.getY();
@@ -72,6 +73,8 @@ public class ScrollerView extends View {
 
         mLastX = x;
         mLastY = y;
+        //重置为初始状态，清除缓存
+        mVelocityTracker.clear();
         return true;
     }
 
