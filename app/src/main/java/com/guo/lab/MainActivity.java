@@ -1,4 +1,4 @@
-package com.guo.artpractice;
+package com.guo.lab;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
