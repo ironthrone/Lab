@@ -4,8 +4,8 @@
     android:id="@+id/activity_horizontal_scroll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.guo.artpractice.HorizontalPagerActivity">
-<com.guo.artpractice.HorizontalPagerView
+    tools:context="com.guo.lab.HorizontalPagerActivity">
+<com.guo.lab.HorizontalPagerView
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
@@ -26,5 +26,5 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-</com.guo.artpractice.HorizontalPagerView>
+</com.guo.lab.HorizontalPagerView>
 </LinearLayout>

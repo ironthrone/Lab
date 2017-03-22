@@ -1,4 +1,4 @@
-package com.guo.artpractice;
+package com.guo.lab;
 
 import android.animation.ValueAnimator;
 import android.support.v7.app.AppCompatActivity;

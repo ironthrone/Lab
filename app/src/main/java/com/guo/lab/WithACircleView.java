@@ -1,4 +1,4 @@
-package com.guo.artpractice;
+package com.guo.lab;
 
 import android.content.Context;
 import android.content.res.TypedArray;

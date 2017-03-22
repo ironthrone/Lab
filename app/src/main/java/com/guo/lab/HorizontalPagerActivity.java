@@ -1,13 +1,13 @@
-package com.guo.artpractice;
+package com.guo.lab;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class LayoutAnimationActivity extends AppCompatActivity {
+public class HorizontalPagerActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_layout_animation);
+        setContentView(R.layout.activity_horizontal_scroll);
     }
 }

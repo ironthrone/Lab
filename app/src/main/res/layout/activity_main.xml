@@ -24,17 +24,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <com.guo.artpractice.ScrollerView
+    <Button
+        android:id="@+id/recycler"
+        android:text="recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.guo.lab.ScrollerView
         android:layout_width="match_parent"
         android:layout_height="400dp" />
 
-    <com.guo.artpractice.WithACircleView
+    <com.guo.lab.WithACircleView
         app:circle_color="@color/colorPrimary"
         android:padding="20dp"
         android:background="@color/colorAccent"
         android:layout_width="100dp"
         android:layout_height="100dp" />
-    <com.guo.artpractice.WithACircleView
+    <com.guo.lab.WithACircleView
         app:circle_color="@color/colorPrimary"
         android:background="@color/colorAccent"
         android:layout_width="100dp"

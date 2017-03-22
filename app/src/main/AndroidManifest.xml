@@ -12,17 +12,17 @@
 
         <!-- android:configChanges="orientation|screenSize" -->
         <activity
-            android:name="com.guo.lab.MainActivity"
-            >
+            android:name="com.guo.lab.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HorizontalPagerActivity" />
-        <activity android:name=".LayoutAnimationActivity" />
-        <activity android:name=".AnimatorActivity"></activity>
+        <activity android:name="com.guo.lab.HorizontalPagerActivity" />
+        <activity android:name="com.guo.lab.LayoutAnimationActivity" />
+        <activity android:name="com.guo.lab.AnimatorActivity" />
+        <activity android:name="com.guo.lab.RecyclerActivity"></activity>
     </application>
 
 </manifest>
