@@ -17,7 +17,7 @@ public class TextViewModel {
     }
 
 
-    public void echo(TextView view) {
-        ToastUtils.showShortToastSafe(view.getText().toString());
+    public void echo(View view) {
+        ToastUtils.showShortToastSafe(((TextView)view).getText().toString());
     }
 }

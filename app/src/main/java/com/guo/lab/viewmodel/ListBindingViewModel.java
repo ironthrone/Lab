@@ -6,14 +6,14 @@ import android.databinding.ObservableList;
 import com.guo.lab.R;
 import com.guo.lab.BR;
 
-import me.tatarka.bindingcollectionadapter.ItemView;
+import me.tatarka.bindingcollectionadapter2.ItemBinding;
 
 /**
  * Created by Administrator on 2017/3/17.
  */
 
 public class ListBindingViewModel {
-    public ItemView itemView = ItemView.of(BR.viewModel, R.layout.item_text);
+    public ItemBinding<TextViewModel> itemView = ItemBinding.of(BR.itemViewModel, R.layout.item_text);
     public ObservableList<TextViewModel> itemViewModels = new ObservableArrayList<>();
 
     public ListBindingViewModel() {

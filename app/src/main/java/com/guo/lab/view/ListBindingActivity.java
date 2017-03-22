@@ -16,5 +16,6 @@ public class ListBindingActivity extends AppCompatActivity {
         ActivityListBindingBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_list_binding);
         binding.setViewModel(new ListBindingViewModel());
 
+
     }
 }

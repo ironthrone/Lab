@@ -34,5 +34,8 @@ dependencies {
     compile 'com.squareup.retrofit2:converter-gson:2.0.0'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.0.0'
     compile 'com.squareup.picasso:picasso:2.5.2'
-    compile 'com.kelin.mvvmlight:library:1.0.0'
+//    compile 'com.kelin.mvvmlight:library:1.0.0'
+    compile 'me.tatarka.bindingcollectionadapter2:bindingcollectionadapter:2.0.1'
+    compile 'me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-recyclerview:2.0.1'
+
 }

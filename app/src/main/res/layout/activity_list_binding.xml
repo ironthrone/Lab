@@ -16,7 +16,7 @@
         tools:context="com.guo.lab.view.ListBindingActivity">
         <ListView
             android:id="@+id/list"
-            app:itemView="@{viewModel.itemView}"
+            app:itemBinding="@{viewModel.itemView}"
             app:items="@{viewModel.itemViewModels}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>

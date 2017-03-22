@@ -12,9 +12,7 @@ import com.guo.lab.BR;
 import com.guo.lab.R;
 import com.guo.lab.model.Book;
 import com.guo.lab.model.BookNormal;
-import com.kelin.mvvmlight.base.ViewModel;
 
-import me.tatarka.bindingcollectionadapter.ItemView;
 
 /**
  * Created by Administrator on 2017/3/15.
