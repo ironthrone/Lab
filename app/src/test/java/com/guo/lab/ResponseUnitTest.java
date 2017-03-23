@@ -38,8 +38,8 @@ public class ResponseUnitTest {
         String json = "{\"state\":1,\"datas\":{\"member_name\":\"xiaofeng\",\"member_id\":11}}";
         ResponseModel<MemberModel> responseModel = customGson.fromJson(json, new TypeToken<ResponseModel<MemberModel>>() {
         }.getType());
-//        System.out.println(responseModel.getClass().toString() + responseModel.datas.getClass().toString());
-        Assert.assertTrue(responseModel.datas != null && responseModel.datas instanceof MemberModel);
+        Assert.assertTrue(responseModel.datas != null );
+        Assert.assertTrue(responseModel.datas instanceof MemberModel);
     }
 
     @Test
@@ -48,7 +48,8 @@ public class ResponseUnitTest {
         ResponseModel<String> responseModel = customGson.fromJson(json, new TypeToken<ResponseModel<String>>() {
         }.getType());
         System.out.println(responseModel.toString());
-        Assert.assertTrue(responseModel.err != null && responseModel.err instanceof String);
+        Assert.assertTrue(responseModel.err != null);
+        Assert.assertTrue(responseModel.err instanceof String );
     }
     @Test
     public void parseDataIsList() throws Exception {
@@ -56,7 +57,7 @@ public class ResponseUnitTest {
         ResponseModel<ArrayList<MemberModel>> responseModel = customGson.fromJson(json, new TypeToken<ResponseModel<ArrayList<MemberModel>>>() {
         }.getType());
         System.out.println(responseModel.toString());
-        System.out.println(responseModel.datas.getClass().toString());
+        Assert.assertTrue(responseModel.datas instanceof ArrayList );
         Assert.assertTrue(responseModel.datas != null );
     }
 }
