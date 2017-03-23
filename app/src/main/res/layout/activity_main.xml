@@ -11,5 +11,18 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.guo.lab.MainActivity">
 
-
+    <Button
+        android:id="@+id/zan"
+        android:text="memberInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/invalid_key"
+        android:text="invalidkey"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/response"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 </LinearLayout>

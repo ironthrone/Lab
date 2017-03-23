@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.guo.lab">
 
+
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:name="com.guo.lab.LabApplication"
         android:allowBackup="true"
