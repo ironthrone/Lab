@@ -1,4 +1,4 @@
-package com.guo.artpractice.binderpool;
+package com.guo.lab.binderpool;
 
 import android.os.RemoteException;
 import android.support.v7.app.AppCompatActivity;
@@ -7,8 +7,8 @@ import android.util.Log;
 import android.view.View;
 
 import com.blankj.utilcode.utils.ToastUtils;
-import com.guo.artpractice.library.Book;
-import com.guo.artpractice.R;
+import com.guo.lab.R;
+import com.guo.lab.library.Book;
 import com.guo.rong.ILibrary;
 
 import java.util.List;

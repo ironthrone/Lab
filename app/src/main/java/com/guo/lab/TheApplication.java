@@ -1,4 +1,4 @@
-package com.guo.artpractice;
+package com.guo.lab;
 
 import android.app.ActivityManager;
 import android.app.Application;

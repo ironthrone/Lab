@@ -1,4 +1,4 @@
-package com.guo.artpractice.library;
+package com.guo.lab.library;
 
 import android.app.Service;
 import android.content.Intent;

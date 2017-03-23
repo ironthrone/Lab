@@ -1,7 +1,7 @@
 // ILibrary.aidl
 package com.guo.rong;
 
-import com.guo.artpractice.library.Book;
+import com.guo.lab.library.Book;
 import com.guo.rong.IOnNewBookArriveListener;
 
 interface ILibrary {

@@ -1,4 +1,4 @@
-package com.guo.artpractice;
+package com.guo.lab;
 
 import java.io.Serializable;
 import java.util.Random;

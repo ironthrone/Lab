@@ -1,4 +1,4 @@
-package com.guo.artpractice.library;
+package com.guo.lab.library;
 
 import android.app.ActivityManager;
 import android.app.Service;
@@ -14,7 +14,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-import com.guo.artpractice.R;
+import com.guo.lab.R;
 import com.guo.rong.ILibrary;
 import com.guo.rong.IOnNewBookArriveListener;
 

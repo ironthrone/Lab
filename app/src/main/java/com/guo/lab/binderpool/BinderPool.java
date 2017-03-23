@@ -1,4 +1,4 @@
-package com.guo.artpractice.binderpool;
+package com.guo.lab.binderpool;
 
 
 import android.app.Service;
@@ -9,7 +9,7 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.os.RemoteException;
 
-import com.guo.artpractice.library.ILibraryImp;
+import com.guo.lab.library.ILibraryImp;
 import com.guo.rong.IBinderPool;
 import com.guo.rong.ILibrary;
 

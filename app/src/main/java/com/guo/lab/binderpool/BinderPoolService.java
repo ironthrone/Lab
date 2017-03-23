@@ -1,4 +1,4 @@
-package com.guo.artpractice.binderpool;
+package com.guo.lab.binderpool;
 
 import android.app.Service;
 import android.content.Intent;
