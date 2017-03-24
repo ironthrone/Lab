@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.guo.lab.binderpool.BinderPoolClientActivity;
 import com.guo.lab.library.ReaderActivity;
+import com.guo.lab.socket.ConversationActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -19,6 +20,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.read)
                 .setOnClickListener(this);
         findViewById(R.id.binder_pool)
+                .setOnClickListener(this);
+        findViewById(R.id.socket)
                 .setOnClickListener(this);
 
     }
@@ -33,6 +36,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.binder_pool:
                         startActivity(new Intent(MainActivity.this,BinderPoolClientActivity.class));
                 break;
+            case R.id.socket:
+
+                        startActivity(new Intent(MainActivity.this,ConversationActivity.class));
+                break;
+
         }
     }
 }
