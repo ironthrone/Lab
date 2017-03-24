@@ -1,4 +1,4 @@
-package com.guo.lab;
+package com.guo.lab.service;
 
 import retrofit2.Call;
 import retrofit2.Callback;

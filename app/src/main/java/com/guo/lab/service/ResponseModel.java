@@ -1,4 +1,4 @@
-package com.guo.lab;
+package com.guo.lab.service;
 
 /**
  * Created by Administrator on 2017/3/23.

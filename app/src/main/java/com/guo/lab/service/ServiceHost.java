@@ -1,7 +1,8 @@
-package com.guo.lab;
+package com.guo.lab.service;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.guo.lab.BuildConfig;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -20,7 +21,7 @@ public class ServiceHost {
     private final Retrofit retrofit;
     private Service service;
 
-    public ServiceHost getInsatnce() {
+    public static ServiceHost getInsatnce() {
         if (INSTANCE == null) {
             synchronized (ServiceHost.class) {
                 if (INSTANCE == null) {

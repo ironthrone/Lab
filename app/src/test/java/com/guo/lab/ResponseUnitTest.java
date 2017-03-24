@@ -3,6 +3,8 @@ package com.guo.lab;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import com.guo.lab.service.ResponseDeserializer;
+import com.guo.lab.service.ResponseModel;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -22,13 +24,13 @@ public class ResponseUnitTest {
     @Before
     public  void setup() {
         GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.registerTypeAdapter(ResponseModel.class, new ResponseDeserializer<>(new Gson()));
+        gsonBuilder.registerTypeAdapter(ResponseModel.class, new ResponseDeserializer<>());
         customGson = gsonBuilder.create();
     }
 
     @Test
     public void parseDataIsObject() throws Exception {
-        String json = "{\"state\":1,\"data\":{\"member_name\":\"xiaofeng\",\"member_id\":11}}";
+        String json = "{\"state\":1,\"datas\":{\"member_name\":\"xiaofeng\",\"member_id\":11}}";
         ResponseModel<MemberModel> responseModel = customGson.fromJson(json, new TypeToken<ResponseModel<MemberModel>>() {
         }.getType());
         Assert.assertTrue(responseModel.data != null );
@@ -37,7 +39,7 @@ public class ResponseUnitTest {
 
     @Test
     public void parseDataIsString() throws Exception {
-        String json = "{\"state\":0,\"data\":\"member_name\"}";
+        String json = "{\"state\":0,\"datas\":\"member_name\"}";
         ResponseModel<String> responseModel = customGson.fromJson(json, new TypeToken<ResponseModel<String>>() {
         }.getType());
         System.out.println(responseModel.toString());
@@ -46,7 +48,7 @@ public class ResponseUnitTest {
     }
     @Test
     public void parseDataIsList() throws Exception {
-        String json = "{\"state\":1,\"data\":[{\"member_name\":\"xiaofeng\",\"member_id\":11},{\"member_name\":\"xiaofeng\",\"member_id\":11}]}";
+        String json = "{\"state\":1,\"datas\":[{\"member_name\":\"xiaofeng\",\"member_id\":11},{\"member_name\":\"xiaofeng\",\"member_id\":11}]}";
         ResponseModel<ArrayList<MemberModel>> responseModel = customGson.fromJson(json, new TypeToken<ResponseModel<ArrayList<MemberModel>>>() {
         }.getType());
         System.out.println(responseModel.toString());

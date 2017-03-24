@@ -1,4 +1,6 @@
-package com.guo.lab;
+package com.guo.lab.service;
+
+import com.guo.lab.MemberModel;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
