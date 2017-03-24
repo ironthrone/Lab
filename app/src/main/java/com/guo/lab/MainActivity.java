@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.blankj.utilcode.utils.LogUtils;
+import com.blankj.utilcode.utils.ToastUtils;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -32,7 +33,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.registerTypeAdapter(ResponseModel.class, new ResponseDeserializer<>(new Gson()));
+        gsonBuilder.registerTypeAdapter(ResponseModel.class,
+                new ResponseDeserializer());
+//        gsonBuilder.registerTypeAdapter(new TypeToken<Response>(){}.getRawType(), new ResponseDeserializer<>(new Gson()));
 
         Gson customGson = gsonBuilder.create();
 
@@ -66,15 +69,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void getMemberInfo(String key) {
-        service.memberInfo(key).enqueue(new Callback<ResponseModel<MemberModel>>() {
+        service.memberInfo(key).enqueue(new XiChengCallback<MemberModel>() {
             @Override
-            public void onResponse(Call<ResponseModel<MemberModel>> call, Response<ResponseModel<MemberModel>> response) {
-                LogUtils.d(response.body());
+            protected void onSuccess(MemberModel data) {
+                LogUtils.d(data);
             }
 
             @Override
-            public void onFailure(Call<ResponseModel<MemberModel>> call, Throwable t) {
-                LogUtils.d(t.getMessage());
+            protected void onFail(String message) {
+                ToastUtils.showShortToastSafe(message);
             }
         });
     }

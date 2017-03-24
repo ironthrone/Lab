@@ -12,7 +12,6 @@ import retrofit2.http.POST;
 public interface Service {
 
 
-    public static final String BASE_URL = "http://60.205.208.90/mobile/";
 
     @POST("MemberIndex/member_info")
     @FormUrlEncoded
