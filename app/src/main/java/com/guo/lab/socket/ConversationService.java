@@ -19,6 +19,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 
 public class ConversationService extends Service {
+    private static final String TAG = ConversationService.class.getSimpleName();
     private ServerSocket serverSocket;
     private ExecutorService executorService;
     private boolean serverDestroy = false;
@@ -42,7 +43,7 @@ public class ConversationService extends Service {
                 listen();
 
             }
-        });
+        }).start();
     }
 
     private void listen() {
@@ -56,9 +57,9 @@ public class ConversationService extends Service {
         }
 
         while (!serverDestroy) {
-            Socket comeScoket = null;
             try {
-                comeScoket = serverSocket.accept();
+                LogUtils.d("begin accept socket");
+                Socket comeScoket = serverSocket.accept();
                 executorService.execute(new ProcessRequest(comeScoket));
             } catch (IOException e) {
                 e.printStackTrace();
@@ -67,7 +68,7 @@ public class ConversationService extends Service {
     }
 
 
-    private  class ProcessRequest implements Runnable {
+    private class ProcessRequest implements Runnable {
 
         Socket socket;
 
@@ -77,21 +78,27 @@ public class ConversationService extends Service {
 
         @Override
         public void run() {
-            BufferedReader bufferedReader = null;
             try {
-                bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
-                boolean close = false;
-                while (!close&& !serverDestroy) {
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                //设置autoFlush为true，这样缓存空间未满的时候数据也会输出
+                PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()),true);
+                while (!serverDestroy) {
+                    LogUtils.d(socket.toString() + ": wait message");
+                    String request = bufferedReader.readLine();
 
-                    String request = null;
-                    request = bufferedReader.readLine();
-                    if (request.equals("stop")) {
-                        socket.close();
-                        close = true;
+                    if (request != null) {
+                        if (request.equals("stop")) {
+                            break;
+                        } else {
+                            LogUtils.d(TAG,"receive message: " + request);
+                            printWriter.println("echo" + request);
+                        }
                     }
-                    printWriter.write(request);
                 }
+                LogUtils.d("service socket leave");
+                bufferedReader.close();
+                printWriter.close();
+                socket.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -108,6 +115,11 @@ public class ConversationService extends Service {
     public void onDestroy() {
         super.onDestroy();
         serverDestroy = true;
+        try {
+            serverSocket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         executorService.shutdownNow();
     }
 }

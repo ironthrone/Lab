@@ -3,6 +3,7 @@ package com.guo.lab.socket;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -23,7 +24,7 @@ import java.io.PrintWriter;
 import java.net.Socket;
 
 import rx.Observable;
-import rx.Subscriber;
+import rx.functions.Action1;
 import rx.schedulers.Schedulers;
 
 public class ConversationActivity extends AppCompatActivity implements View.OnClickListener {
@@ -36,7 +37,6 @@ public class ConversationActivity extends AppCompatActivity implements View.OnCl
     private EditText input;
     private TextView response;
 
-    private boolean clientDestroy;
 
     private static final int CONNECT_STATE = 100;
     private static final int RESPONSE = 200;
@@ -50,6 +50,7 @@ public class ConversationActivity extends AppCompatActivity implements View.OnCl
                     break;
                 case RESPONSE:
                     response.setText(msg.obj.toString());
+                    LogUtils.d("received " + msg.obj.toString());
                     break;
             }
             return true;
@@ -68,68 +69,62 @@ public class ConversationActivity extends AppCompatActivity implements View.OnCl
 
         startService(new Intent(this, ConversationService.class));
 
-        Observable.empty().observeOn(Schedulers.io())
-                .subscribe(new Subscriber<Object>() {
+        Observable.just("").observeOn(Schedulers.io())
+                .subscribe(new Action1<String>() {
                     @Override
-                    public void onCompleted() {
+                    public void call(String s) {
                         connect();
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-
-                    }
-
-                    @Override
-                    public void onNext(Object o) {
-
                     }
                 });
     }
 
     private void connect() {
         while (socket == null) {
-
             try {
 
                 socket = new Socket("localhost", 8099);
                 Message.obtain(handler, CONNECT_STATE, "CONNECTING").sendToTarget();
 
+                //设置autoFlush为true，这样缓存空间未满的时候数据也会输出
                 printWriter = new PrintWriter(
-                        new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())));
+                        new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())),true);
 
                 reader = new BufferedReader(
                         new InputStreamReader(socket.getInputStream()));
             } catch (IOException e) {
                 e.printStackTrace();
                 LogUtils.d("socket connect fail");
+                SystemClock.sleep(1000);
                 Message.obtain(handler, CONNECT_STATE, "CONNECT FAIL").sendToTarget();
             }
         }
         Message.obtain(handler, CONNECT_STATE, "CONNECTED").sendToTarget();
 
-        while (!clientDestroy && socket.isConnected()) {
-            try {
+        try {
+            while (!isFinishing()) {
                 final String readStr = reader.readLine();
                 if (readStr != null) {
                     Message.obtain(handler, RESPONSE, readStr).sendToTarget();
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
             }
+            reader.close();
+            printWriter.close();
+            socket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        clientDestroy = true;
-        try {
-            socket.close();
-            reader.close();
-            printWriter.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (socket != null) {
+            try {
+                socket.shutdownInput();
+                socket.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -139,6 +134,6 @@ public class ConversationActivity extends AppCompatActivity implements View.OnCl
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        printWriter.write(str);
+        printWriter.println(str);
     }
 }
