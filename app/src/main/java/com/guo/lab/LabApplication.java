@@ -2,6 +2,7 @@ package com.guo.lab;
 
 import android.app.Application;
 
+import com.baidu.mapapi.SDKInitializer;
 import com.blankj.utilcode.utils.Utils;
 
 /**
@@ -13,5 +14,7 @@ public class LabApplication extends Application {
     public void onCreate() {
         super.onCreate();
         Utils.init(this);
+        SDKInitializer.initialize(this);
+        LocationMaster.init(getApplicationContext());
     }
 }
