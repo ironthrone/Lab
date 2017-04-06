@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.guo.lab">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <application
         android:name=".LabApplication"
         android:allowBackup="true"
@@ -19,6 +21,28 @@
             </intent-filter>
         </activity>
 
+        <service
+            android:name=".NormalService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":normal"
+            />
+        <service
+            android:name=".LockService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":lock" />
+        <service
+            android:name=".AlarmService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":alarm" />
+
+        <receiver
+            android:name=".LogReceiver"
+            android:process=":alarm"
+            android:enabled="true"
+            android:exported="true"/>
     </application>
 
 </manifest>
