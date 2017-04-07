@@ -1,10 +1,12 @@
 package com.guo.lab;
 
+import android.app.Notification;
 import android.app.Service;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.IBinder;
 import android.support.annotation.IntDef;
+import android.support.v4.app.NotificationCompat;
 
 import com.blankj.utilcode.utils.LogUtils;
 
@@ -42,6 +44,12 @@ public class NormalService extends Service {
     @Override
     public int onStartCommand(Intent intent,  int flags, int startId) {
         LogUtils.d(new Date() + "onStartCommand");
+        Notification foreground  = new NotificationCompat.Builder(this)
+                .setContentTitle("I am working")
+                .setContentText("")
+                .setSmallIcon(R.mipmap.ic_launcher).build();
+        startForeground(1,foreground);
+
         return super.onStartCommand(intent, flags, startId);
     }
 

@@ -21,8 +21,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         startService(new Intent(MainActivity.this, NormalService.class));
-        startService(new Intent(MainActivity.this, AlarmService.class));
-        startService(new Intent(MainActivity.this, LockService.class));
+//        startService(new Intent(MainActivity.this, AlarmService.class));
+//        startService(new Intent(MainActivity.this, LockService.class));
         sendBroadcast(new Intent(this,WakefulReceiver.class));
         findViewById(R.id.start_service)
                 .setOnClickListener(new View.OnClickListener() {
