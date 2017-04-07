@@ -4,7 +4,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.1"
     defaultConfig {
-        applicationId "com.guo.lab"
+        applicationId "com.guo.lab.location"
         minSdkVersion 15
         targetSdkVersion 22
         versionCode 1

@@ -8,6 +8,7 @@ import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Environment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.LoaderManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -38,6 +39,12 @@ public class MainActivity extends AppCompatActivity implements BDLocationListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        startService(new Intent(this, FrameLocationService.class));
+
+
+
 
         locationClient = LocationMaster.getInstance(this).getLocationClient();
         locationClient.registerLocationListener(this);
