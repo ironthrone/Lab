@@ -37,7 +37,7 @@ public class FrameLocationService extends Service {
             @Override
             public void onLocationChanged(Location location) {
 
-                logger.insertLog(location.toString());
+                logger.insertLog(location.getLatitude() + " " + location.getLongitude());
                 Log.d(TAG, "onLocationChanged");
             }
 

@@ -54,6 +54,8 @@
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="1oN5jlvjvGwrnkxeG3Tl9mumzwKDHPp8" />
 
+        <service android:name=".FrameLocationService"
+            />
 
     </application>
 
