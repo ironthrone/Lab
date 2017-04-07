@@ -18,7 +18,7 @@ public class LogReceiver extends BroadcastReceiver {
         CirculationLogger logger = AlarmService.logger;
         logger.insertLog( "Alarm onReceive");
 //        doALog(context);
-        context.startService(new Intent(context, AlarmService.class));
+//        context.startService(new Intent(context, AlarmService.class));
     }
 
     public static void doALog(Context context) {

@@ -40,13 +40,13 @@ public class AlarmService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         logger.insertLog( "onStartCommand");
-        return super.onStartCommand(intent, flags, startId);
+        return START_STICKY;
     }
 
     @Override
     public void onLowMemory() {
         super.onLowMemory();
-        logger.insertLog( " onLowMemory");
+        logger.insertLog( " adbonLowMemory");
     }
 
     @Override

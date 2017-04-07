@@ -4,6 +4,9 @@
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <application
         android:name=".LabApplication"
         android:allowBackup="true"
@@ -25,8 +28,7 @@
             android:name=".NormalService"
             android:enabled="true"
             android:exported="true"
-            android:process=":normal"
-            />
+            android:process=":normal" />
         <service
             android:name=".LockService"
             android:enabled="true"
@@ -40,7 +42,27 @@
 
         <receiver
             android:name=".LogReceiver"
-            android:process=":alarm"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":alarm" />
+        <receiver
+            android:name=".WakefulReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":wakeful">
+            <intent-filter>
+                <action android:name="wakeLock" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".WakefulService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":wakeful" />
+        <service
+            android:name=".FrameLocationService"
+            android:process=":location"
             android:enabled="true"
             android:exported="true"/>
     </application>
