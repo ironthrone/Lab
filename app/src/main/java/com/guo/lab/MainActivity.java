@@ -33,32 +33,5 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        LocationListener locationListener = new LocationListener() {
-            @Override
-            public void onLocationChanged(Location location) {
-                Log.d(TAG, location.toString());
-                Log.d(TAG, "onLocationChanged");
-            }
-
-            @Override
-            public void onStatusChanged(String provider, int status, Bundle extras) {
-
-            }
-
-            @Override
-            public void onProviderEnabled(String provider) {
-                Log.d(TAG, "onProviderEnabled");
-            }
-
-            @Override
-            public void onProviderDisabled(String provider) {
-
-            }
-        };
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
-        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
-        Log.d(TAG,locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER).toString());
-
     }
 }
