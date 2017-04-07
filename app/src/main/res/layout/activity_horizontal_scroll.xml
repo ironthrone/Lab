@@ -5,26 +5,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.guo.lab.HorizontalPagerActivity">
-<com.guo.lab.HorizontalPagerView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-        android:text="one"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-    <TextView
-        android:text="second"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 
-    <TextView
-        android:text="third"
+    <com.guo.lab.HorizontalPagerView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-    <TextView
-        android:text="fourth"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
 
-</com.guo.lab.HorizontalPagerView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="one" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="second" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="third" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="fourth" />
+
+    </com.guo.lab.HorizontalPagerView>
 </LinearLayout>
