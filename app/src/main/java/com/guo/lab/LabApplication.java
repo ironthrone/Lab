@@ -1,5 +1,6 @@
 package com.guo.lab;
 
+import android.app.Activity;
 import android.app.Application;
 
 import com.blankj.utilcode.utils.Utils;
@@ -9,6 +10,7 @@ import com.blankj.utilcode.utils.Utils;
  */
 
 public class LabApplication extends Application {
+    public static Activity keepFroundActivity;
     @Override
     public void onCreate() {
         super.onCreate();

@@ -34,6 +34,7 @@ public class AlarmService extends Service {
         PendingIntent logPending = PendingIntent.getBroadcast(this, 0, new Intent(this, LogReceiver.class), PendingIntent.FLAG_UPDATE_CURRENT);
 //        alarmManager.setExact(AlarmManager.RTC_WAKEUP,System.currentTimeMillis() + 5000,logPending);
         alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,0,60000,logPending);
+//        LogReceiver.doALog(this);
     }
 
 

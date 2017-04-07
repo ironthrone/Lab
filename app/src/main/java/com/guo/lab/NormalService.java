@@ -2,6 +2,7 @@ package com.guo.lab;
 
 import android.app.Service;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.IBinder;
 import android.support.annotation.IntDef;
 
@@ -12,6 +13,7 @@ import java.util.Date;
 public class NormalService extends Service {
 
     private CirculationLogger logger;
+    private KeepLiveReceiver keepLiveReceiver;
 
     public NormalService() {
     }
@@ -29,6 +31,12 @@ public class NormalService extends Service {
         logger = new CirculationLogger("normalservice.txt");
         logger.circulationLog("circulation");
         logger.insertLog("onCreate");
+
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(Intent.ACTION_SCREEN_OFF);
+        filter.addAction(Intent.ACTION_SCREEN_ON);
+        keepLiveReceiver = new KeepLiveReceiver();
+        registerReceiver(keepLiveReceiver, filter);
     }
 
     @Override
@@ -46,6 +54,7 @@ public class NormalService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
+        unregisterReceiver(keepLiveReceiver);
         logger.insertLog("on destroy");
     }
 }
