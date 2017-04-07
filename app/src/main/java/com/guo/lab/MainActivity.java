@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
         startService(new Intent(MainActivity.this, NormalService.class));
         startService(new Intent(MainActivity.this, AlarmService.class));
         startService(new Intent(MainActivity.this, LockService.class));
-        startService(new Intent(MainActivity.this, FrameLocationService.class));
         sendBroadcast(new Intent(this,WakefulReceiver.class));
         findViewById(R.id.start_service)
                 .setOnClickListener(new View.OnClickListener() {
