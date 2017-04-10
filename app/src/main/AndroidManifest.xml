@@ -23,7 +23,7 @@
         </activity>
 
         <service
-            android:name=".NormalService"
+            android:name=".ForegroundService"
             android:enabled="true"
             android:exported="true"
             />
@@ -75,6 +75,7 @@
                 <!--<action android:name="android.intent.action.SCREEN_OFF" />-->
             <!--</intent-filter>-->
         <!--</receiver>-->
+        <service android:name=".ForegroundService$InnerService"/>
     </application>
 
 </manifest>
