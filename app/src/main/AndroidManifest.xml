@@ -3,7 +3,7 @@
     package="com.guo.lab">
 
     <application
-        android:name="com.guo.lab.LabApplication"
+        android:name=".LabApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -11,18 +11,22 @@
         android:theme="@style/AppTheme">
 
         <!-- android:configChanges="orientation|screenSize" -->
-        <activity
-            android:name="com.guo.lab.MainActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.guo.lab.HorizontalPagerActivity" />
-        <activity android:name="com.guo.lab.LayoutAnimationActivity" />
-        <activity android:name="com.guo.lab.AnimatorActivity" />
-        <activity android:name="com.guo.lab.RecyclerActivity"></activity>
+        <activity android:name=".HorizontalPagerActivity" />
+        <activity android:name=".LayoutAnimationActivity" />
+        <activity android:name=".AnimatorActivity" />
+        <activity android:name=".RecyclerActivity" />
+
+        <receiver
+            android:name=".remoteview.ToastReceiver"
+            android:enabled="true"
+            android:exported="true"></receiver>
     </application>
 
 </manifest>
