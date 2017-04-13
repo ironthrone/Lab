@@ -40,7 +40,7 @@ public class ForegroundService extends Service {
         wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "weak");
         wakeLock.acquire();
 
-        LogUtils.d(new Date() + " onCreate");
+        LogUtils.i(new Date() + " onCreate");
         logger = new CirculationLogger("normalservice.txt");
         logger.circulationLog("circulation");
         logger.insertLog("onCreate");
@@ -54,19 +54,19 @@ public class ForegroundService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        LogUtils.d(new Date() + "onStartCommand");
+        LogUtils.i(new Date() + "onStartCommand");
         //api小于18时候直接弹出空的通知
-        if (Build.VERSION.SDK_INT < 18) {
-            startForeground(1, new Notification());
-        } else {
+//        if (Build.VERSION.SDK_INT < 18) {
+//            startForeground(1, new Notification());
+//        } else {
             Notification foreground = new NotificationCompat.Builder(this)
                     .setContentTitle("I am working")
                     .setContentText("")
                     .setSmallIcon(R.mipmap.ic_launcher).build();
             startForeground(1, foreground);
         //开启服务清除通知
-        startService(new Intent(this, InnerService.class));
-        }
+//        startService(new Intent(this, InnerService.class));
+//        }
 
 
         //返回值表明如果服务被杀死，这个服务可以被重启

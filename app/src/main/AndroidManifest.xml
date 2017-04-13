@@ -25,8 +25,7 @@
         <service
             android:name=".ForegroundService"
             android:enabled="true"
-            android:exported="true"
-            />
+            android:exported="true" />
         <service
             android:name=".LockService"
             android:enabled="true"
@@ -59,23 +58,37 @@
             android:exported="true"
             android:process=":wakeful" />
 
-        <activity android:name=".KeepForegroundActivity"
+        <activity
+            android:name=".KeepForegroundActivity"
             android:excludeFromRecents="true"
             android:exported="false"
             android:finishOnTaskLaunch="false"
             android:launchMode="singleInstance"
-            android:theme="@style/keepForegroundStyle"/>
+            android:theme="@style/keepForegroundStyle" />
 
-        <!--<receiver-->
-            <!--android:name=".KeepLiveReceiver"-->
-            <!--android:enabled="true"-->
-            <!--android:exported="true">-->
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.SCREEN_ON" />-->
-                <!--<action android:name="android.intent.action.SCREEN_OFF" />-->
-            <!--</intent-filter>-->
-        <!--</receiver>-->
-        <service android:name=".ForegroundService$InnerService"/>
+        <!-- <receiver -->
+        <!-- android:name=".KeepLiveReceiver" -->
+        <!-- android:enabled="true" -->
+        <!-- android:exported="true"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.SCREEN_ON" /> -->
+        <!-- <action android:name="android.intent.action.SCREEN_OFF" /> -->
+        <!-- </intent-filter> -->
+        <!-- </receiver> -->
+        <service android:name=".ForegroundService$InnerService" />
+        <service
+            android:name=".HandlerService"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".KeepLivingLocalService"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".KeepLivingRemoteService"
+            android:process="com.guo.remote"
+            android:enabled="true"
+            android:exported="true"/>
     </application>
 
 </manifest>

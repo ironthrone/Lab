@@ -26,7 +26,7 @@ public class CirculationLogger implements Serializable {
     public CirculationLogger(String fileStr) {
         logFile = new File(SDCardUtils.getSDCardPath() + "/Lab/" + fileStr);
         LogUtils.d("logfile:" + logFile.getAbsolutePath());
-        boolean result = FileUtils.createFileByDeleteOldFile(logFile);
+        boolean result = FileUtils.createOrExistsFile(logFile);
         if (!result) throw new IllegalArgumentException("File path not legal");
     }
 
