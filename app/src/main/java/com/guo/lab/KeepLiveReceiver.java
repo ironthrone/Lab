@@ -10,12 +10,11 @@ public class KeepLiveReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         String action = intent.getAction();
         if (action.equals(Intent.ACTION_SCREEN_OFF)) {
-
-            context.startActivity(new Intent(context,KeepForegroundActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+            context.startActivity(new Intent(context,WallPaperActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
         } else if (action.equals(Intent.ACTION_SCREEN_ON)){
-            if (LabApplication.keepFroundActivity != null) {
-                LabApplication.keepFroundActivity.finish();
-            }
+//            if (LabApplication.keepFroundActivity != null) {
+//                LabApplication.keepFroundActivity.finish();
+//            }
         }
     }
 }

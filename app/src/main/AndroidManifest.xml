@@ -86,9 +86,11 @@
             android:exported="true" />
         <service
             android:name=".KeepLivingRemoteService"
-            android:process="com.guo.remote"
             android:enabled="true"
-            android:exported="true"/>
+            android:exported="true"
+            android:process="com.guo.remote" />
+
+        <activity android:name=".WallPaperActivity"></activity>
     </application>
 
 </manifest>
