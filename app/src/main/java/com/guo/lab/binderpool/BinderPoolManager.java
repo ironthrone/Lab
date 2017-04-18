@@ -19,15 +19,16 @@ import java.util.concurrent.CountDownLatch;
  * Created by Administrator on 2017/3/15.
  */
 
-public class BinderPool {
+public class BinderPoolManager {
     public static final int TYPE_LIBRARY = 1;
 
     private IBinderPool binderPoolReal;
-    private static BinderPool INSTANCE;
+    private static BinderPoolManager INSTANCE;
     private Context context;
 
 
-    public BinderPool(Context context) {
+    //阻塞操作
+    public BinderPoolManager(Context context) {
         this.context = context.getApplicationContext();
         connectToService();
     }
@@ -58,12 +59,12 @@ public class BinderPool {
     }
 
 
-    //后台线程调用
-    public static BinderPool with(Context context) {
+    //由于connectToService()这是个阻塞方法后台线程调用
+    public static BinderPoolManager with(Context context) {
         if (INSTANCE == null) {
-            synchronized (BinderPool.class) {
+            synchronized (BinderPoolManager.class) {
                 if (INSTANCE == null) {
-                    INSTANCE = new BinderPool(context);
+                    INSTANCE = new BinderPoolManager(context);
                 }
             }
         }
@@ -87,9 +88,9 @@ public class BinderPool {
     /**
      * 取消绑定，防止内存泄露
      */
-    public void clear(){
+    public void clear() {
         if (mPoolConnection != null) {
-        context.unbindService(mPoolConnection);
+            context.unbindService(mPoolConnection);
             mPoolConnection = null;
         }
     }

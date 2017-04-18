@@ -30,7 +30,7 @@ public class BinderPoolClientActivity extends AppCompatActivity implements View.
         singleExecutor.submit(new Runnable() {
             @Override
             public void run() {
-                library = ILibrary.Stub.asInterface(BinderPool.with(BinderPoolClientActivity.this).getBinder(BinderPool.TYPE_LIBRARY));
+                library = ILibrary.Stub.asInterface(BinderPoolManager.with(BinderPoolClientActivity.this).getBinder(BinderPoolManager.TYPE_LIBRARY));
 
             }
         });
@@ -66,7 +66,7 @@ public class BinderPoolClientActivity extends AppCompatActivity implements View.
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        BinderPool.with(this).clear();
+        BinderPoolManager.with(this).clear();
         singleExecutor.shutdown();
     }
 }

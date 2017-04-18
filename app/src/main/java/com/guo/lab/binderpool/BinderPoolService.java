@@ -10,7 +10,7 @@ public class BinderPoolService extends Service {
     public BinderPoolService() {
     }
 
-    private IBinderPool iBinderPool = new BinderPool.BinderPoolReal();
+    private IBinderPool iBinderPool = new BinderPoolManager.BinderPoolReal();
 
     @Override
     public IBinder onBind(Intent intent) {
