@@ -97,12 +97,18 @@ public class ReaderActivity extends AppCompatActivity implements View.OnClickLis
                 .setOnClickListener(this);
         findViewById(R.id.register)
                 .setOnClickListener(this);
+        findViewById(R.id.stop)
+                .setOnClickListener(this);
     }
 
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.stop:
+                unbindService(connection);
+                stopService(new Intent(this, LibraryService.class));
+                break;
             case R.id.register:
                 try {
                     library.registerOnNewBookArriveListener(onNewBookArriveListener);
