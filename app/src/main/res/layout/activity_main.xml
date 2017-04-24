@@ -23,6 +23,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <Button
+        android:id="@+id/manual"
+        android:text="manual"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
         android:id="@+id/socket"
         android:text="socket"
         android:layout_width="match_parent"
