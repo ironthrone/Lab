@@ -19,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".SelectImageActivity"></activity>
+        <activity android:name=".mvp2.BaseMvpActivity" />
     </application>
 
 </manifest>
