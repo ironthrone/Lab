@@ -4,6 +4,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
@@ -12,18 +13,21 @@ import android.widget.RemoteViews;
 
 import com.guo.lab.anim.AnimatorActivity;
 import com.guo.lab.anim.LayoutAnimationActivity;
+import com.guo.lab.anim.LayoutTransitionActivity;
 import com.guo.lab.anim.SpringAnimationActivity;
+import com.guo.lab.databinding.ActivityMainBinding;
 import com.guo.lab.remoteview.ToastReceiver;
 
 
-public class MainActivity extends AppCompatActivity  {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        binding.setClickListener(this);
         findViewById(R.id.horizontal_scroll)
                 .setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -95,5 +99,14 @@ public class MainActivity extends AppCompatActivity  {
                     }
                 });
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.layout_transition:
+                startActivity(new Intent(this, LayoutTransitionActivity.class));
+                break;
+        }
     }
 }

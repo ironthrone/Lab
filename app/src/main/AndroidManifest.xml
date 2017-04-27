@@ -28,7 +28,8 @@
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".anim.SpringAnimationActivity"></activity>
+        <activity android:name=".anim.SpringAnimationActivity" />
+        <activity android:name=".anim.LayoutTransitionActivity"></activity>
     </application>
 
 </manifest>
