@@ -24,6 +24,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <Button
+        android:id="@+id/spring_animation"
+        android:text="springanimation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
         android:id="@+id/remote_view"
         android:text="remoteView"
         android:layout_width="match_parent"

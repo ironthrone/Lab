@@ -12,6 +12,7 @@ import android.widget.RemoteViews;
 
 import com.guo.lab.anim.AnimatorActivity;
 import com.guo.lab.anim.LayoutAnimationActivity;
+import com.guo.lab.anim.SpringAnimationActivity;
 import com.guo.lab.remoteview.ToastReceiver;
 
 
@@ -42,6 +43,14 @@ public class MainActivity extends AppCompatActivity  {
                     @Override
                     public void onClick(View v) {
                         startActivity(new Intent(MainActivity.this,AnimatorActivity.class));
+                    }
+                });
+
+        findViewById(R.id.spring_animation)
+                .setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(MainActivity.this,SpringAnimationActivity.class));
                     }
                 });
 
