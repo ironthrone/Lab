@@ -1,7 +1,9 @@
-package com.guo.lab;
+package com.guo.lab.anim;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.guo.lab.R;
 
 public class LayoutAnimationActivity extends AppCompatActivity {
 

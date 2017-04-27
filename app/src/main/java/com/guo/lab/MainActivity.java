@@ -10,6 +10,8 @@ import android.support.v4.app.NotificationCompat;
 import android.view.View;
 import android.widget.RemoteViews;
 
+import com.guo.lab.anim.AnimatorActivity;
+import com.guo.lab.anim.LayoutAnimationActivity;
 import com.guo.lab.remoteview.ToastReceiver;
 
 

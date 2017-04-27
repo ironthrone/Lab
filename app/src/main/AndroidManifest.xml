@@ -19,8 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".HorizontalPagerActivity" />
-        <activity android:name=".LayoutAnimationActivity" />
-        <activity android:name=".AnimatorActivity" />
+        <activity android:name=".anim.LayoutAnimationActivity" />
+        <activity android:name=".anim.AnimatorActivity" />
         <activity android:name=".RecyclerActivity" />
 
         <receiver
