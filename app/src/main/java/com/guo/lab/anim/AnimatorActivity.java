@@ -1,5 +1,6 @@
 package com.guo.lab.anim;
 
+import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
@@ -20,6 +21,10 @@ public class AnimatorActivity extends AppCompatActivity implements View.OnClickL
     private ImageView imageView;
     private AnimatorSet animatorSet;
     private ValueAnimator translate;
+    private View square_1;
+    private View square_2;
+    private View square_3;
+    private View square_4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +33,15 @@ public class AnimatorActivity extends AppCompatActivity implements View.OnClickL
         imageView = (ImageView) findViewById(R.id.image);
         findViewById(R.id.play)
                 .setOnClickListener(this);
-        findViewById(R.id.post_a_animation)
+        findViewById(R.id.animator_set)
                 .setOnClickListener(this);
+        findViewById(R.id.delay_sequence)
+                .setOnClickListener(this);
+
+        square_1 = findViewById(R.id.square_1);
+        square_2 = findViewById(R.id.square_2);
+        square_3 = findViewById(R.id.square_3);
+        square_4 = findViewById(R.id.square_4);
 
         constructAnimator();
     }
@@ -97,12 +109,75 @@ public class AnimatorActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.post_a_animation:
-                post();
+            case R.id.animator_set:
+                ObjectAnimator scaleX = ObjectAnimator.ofFloat(imageView, "scaleX", 1, 1.4f, 0.8f, 1.4f)
+                        .setDuration(500);
+                ObjectAnimator scaleY = ObjectAnimator.ofFloat(imageView, "scaleY", 1, 1.4f, 0.8f, 1.4f)
+                        .setDuration(500);
+                ObjectAnimator alpha = ObjectAnimator.ofFloat(imageView, "alpha", 1, 0)
+                        .setDuration(300);
+                ObjectAnimator rotate = ObjectAnimator.ofFloat(imageView, "rotation", 0, 180)
+                        .setDuration(300);
+                AnimatorSet animatorSet2 = new AnimatorSet();
+                //搭配动画的次序
+                animatorSet2.play(scaleX)
+                        .with(scaleY)
+                        .before(rotate);
+
+                animatorSet2.play(rotate)
+                        .before(alpha);
+                animatorSet2.start();
                 break;
             case R.id.play:
                 animatorSet.start();
                 break;
+            case R.id.delay_sequence:
+                //每隔800毫秒播放一次动画
+                ObjectAnimator scale1 = ObjectAnimator.ofFloat(square_1, "scaleX", 1, 1.4f, 0.8f)
+                        .setDuration(500);
+                scale1.addListener(new Animator.AnimatorListener() {
+                    @Override
+                    public void onAnimationStart(Animator animation) {
+                        ToastUtils.showShortToastSafe(System.currentTimeMillis() + "");
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                    }
+
+                    @Override
+                    public void onAnimationCancel(Animator animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animator animation) {
+
+                    }
+                });
+
+                ObjectAnimator scale2 = scale1.clone();
+                scale2.setTarget(square_2);
+                AnimatorSet scale2Delay = new AnimatorSet();
+                scale2Delay.play(scale2)
+                        .after(800);
+
+                ObjectAnimator scale3 = scale1.clone();
+                scale3.setTarget(square_3);
+                AnimatorSet scale3Delay = new AnimatorSet();
+                scale3Delay.play(scale3)
+                        .after(1600);
+                ObjectAnimator scale4 = scale1.clone();
+                scale4.setTarget(square_4);
+                AnimatorSet scale4Delay = new AnimatorSet();
+                scale4Delay.play(scale4)
+                        .after(2400);
+
+                AnimatorSet animatorSet = new AnimatorSet();
+                //一起播放Animator，AnimatorSet也可以
+                animatorSet.playTogether(scale1,scale2Delay,scale3Delay,scale4Delay);
+                animatorSet.start();
         }
     }
 

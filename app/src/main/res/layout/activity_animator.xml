@@ -24,8 +24,43 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <Button
-        android:id="@+id/post_a_animation"
-        android:text="postAAnimation"
+        android:id="@+id/animator_set"
+        android:text="animator_set"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <View
+            android:id="@+id/square_1"
+            android:background="@color/colorAccent"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+        <View
+            android:id="@+id/square_2"
+            android:layout_marginLeft="8dp"
+            android:background="@color/colorAccent"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+        <View
+            android:id="@+id/square_3"
+            android:layout_marginLeft="8dp"
+            android:background="@color/colorAccent"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+        <View
+            android:id="@+id/square_4"
+            android:layout_marginLeft="8dp"
+            android:background="@color/colorAccent"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+    </LinearLayout>
+    <Button
+        android:id="@+id/delay_sequence"
+        android:text="delay_sequence"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 </LinearLayout>
