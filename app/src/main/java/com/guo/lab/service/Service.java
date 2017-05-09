@@ -22,4 +22,5 @@ public interface Service {
     @POST("MemberBbsClass/province_list")
     @FormUrlEncoded
     Call<ResponseModel<String>> provinceList(@Field("key") String key);
+
 }

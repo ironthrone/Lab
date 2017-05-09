@@ -15,13 +15,15 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class ServiceHost {
+
     private static final String BASE_URL = "http://60.205.208.90/mobile/";
 
-    private static ServiceHost INSTANCE;
+    //使用volatile禁止指令重排序
+    private volatile static ServiceHost INSTANCE;
     private final Retrofit retrofit;
     private Service service;
 
-    public static ServiceHost getInsatnce() {
+    public static ServiceHost getInstance() {
         if (INSTANCE == null) {
             synchronized (ServiceHost.class) {
                 if (INSTANCE == null) {
@@ -36,6 +38,7 @@ public class ServiceHost {
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.registerTypeAdapter(ResponseModel.class,
                 new ResponseDeserializer());
+
 
         Gson customGson = gsonBuilder.create();
 

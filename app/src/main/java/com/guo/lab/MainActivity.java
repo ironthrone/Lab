@@ -6,18 +6,11 @@ import android.view.View;
 
 import com.blankj.utilcode.utils.LogUtils;
 import com.blankj.utilcode.utils.ToastUtils;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.guo.lab.service.ResponseDeserializer;
-import com.guo.lab.service.ResponseModel;
+import com.blankj.utilcode.utils.Utils;
+import com.guo.lab.progress.ProgressDialogHandler;
 import com.guo.lab.service.Service;
 import com.guo.lab.service.ServiceHost;
 import com.guo.lab.service.XiChengCallback;
-
-import okhttp3.OkHttpClient;
-import okhttp3.logging.HttpLoggingInterceptor;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -28,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     private String cid = "adfasdf";
     private Service service;
+    private ProgressDialogHandler handler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+        handler = new ProgressDialogHandler(Utils.getContext());
 
         findViewById(R.id.zan)
                 .setOnClickListener(new View.OnClickListener() {
@@ -52,8 +47,14 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        handler.show();
+    }
+
     private void getMemberInfo(String key) {
-        ServiceHost.getInsatnce().getService().memberInfo(key).enqueue(new XiChengCallback<MemberModel>() {
+        ServiceHost.getInstance().getService().memberInfo(key).enqueue(new XiChengCallback<MemberModel>() {
             @Override
             protected void onSuccess(MemberModel data) {
                 LogUtils.d(data);
@@ -65,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 
 
 }
