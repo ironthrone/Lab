@@ -43,6 +43,7 @@ public class WithACircleView extends View {
         int heightSpec = MeasureSpec.getSize(heightMeasureSpec);
         int width = widthSpec;
         int height = heightSpec;
+        //处理义父的AT_MOST要求
         if (widthMeasureMode == MeasureSpec.AT_MOST) {
             if (getLayoutParams().width == ViewGroup.LayoutParams.WRAP_CONTENT) {
                     width = widthSpec;

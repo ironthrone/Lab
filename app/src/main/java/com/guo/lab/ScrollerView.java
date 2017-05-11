@@ -48,6 +48,7 @@ public class ScrollerView extends View {
         int action = event.getAction();
         switch (action) {
             case MotionEvent.ACTION_DOWN:
+                //如果这时候滑动还未结束，终止它
                 if (!mScroller.isFinished()) {
                     mScroller.abortAnimation();
                 }
@@ -64,17 +65,16 @@ public class ScrollerView extends View {
                  * 因为滑动的方向和view坐标相反，速度需要改变符号
                  * 在fling或者startScroll之后调用invalidate()发起绘制，这样UI上的位置才能更新
                  */
-//                mScroller.startScroll(getScrollX(), getScrollY(),100,100,500);
                 mScroller.fling(getScrollX(),getScrollY(),-(int)mVelocityTracker.getXVelocity(),-(int)mVelocityTracker.getYVelocity(),
                         Integer.MIN_VALUE,Integer.MAX_VALUE,Integer.MIN_VALUE,Integer.MAX_VALUE);
                 invalidate();
+                //重置为初始状态，清除缓存
+                mVelocityTracker.clear();
                 break;
         }
 
         mLastX = x;
         mLastY = y;
-        //重置为初始状态，清除缓存
-        mVelocityTracker.clear();
         return true;
     }
 

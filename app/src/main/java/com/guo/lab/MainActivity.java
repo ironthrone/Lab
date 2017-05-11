@@ -16,6 +16,7 @@ import com.guo.lab.anim.LayoutAnimationActivity;
 import com.guo.lab.anim.LayoutTransitionActivity;
 import com.guo.lab.anim.SpringAnimationActivity;
 import com.guo.lab.databinding.ActivityMainBinding;
+import com.guo.lab.draw.CanvasActivity;
 import com.guo.lab.remoteview.ToastReceiver;
 
 
@@ -64,8 +65,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     public void onClick(View v) {
                         startActivity(new Intent(MainActivity.this,RecyclerActivity.class));
                     }
+
                 });
+
+        findViewById(R.id.canvas)
+                .setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(MainActivity.this,CanvasActivity.class));
+                    }
+                });
+
         findViewById(R.id.remote_view)
+
                 .setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

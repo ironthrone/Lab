@@ -59,6 +59,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="springanimation" />
+        <Button
+            android:id="@+id/canvas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="canvas" />
 
         <com.guo.lab.ScrollerView
             android:layout_width="match_parent"
