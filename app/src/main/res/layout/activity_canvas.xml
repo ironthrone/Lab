@@ -1,27 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.guo.lab.draw.CanvasActivity">
 
-    <!--<com.guo.lab.draw.RoundImageView-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!--<com.guo.lab.draw.RoundImageView-->
         <!--android:src="@mipmap/ic_launcher"-->
         <!--app:radius="50dp"-->
         <!--android:layout_width="200dp"-->
         <!--android:layout_height="300dp" />-->
-    <com.guo.lab.draw.XfermodeView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-    <!--<com.guo.lab.draw.CanvasView-->
+        <com.guo.lab.TextImageView
+           android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:image="@drawable/wusong"
+            android:padding="10dp"
+            app:text="武松"
+            app:textColor="@color/colorAccent"
+            app:textSize="20sp" />
+        <com.guo.lab.TextImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:image="@drawable/wusong"
+            app:text="三碗不过岗"
+            app:textColor="@color/colorAccent"
+            android:padding="10dp"
+            app:textSize="20sp" />
+        <com.guo.lab.TextImageView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            app:image="@drawable/wusong"
+            app:text="三碗不过岗"
+            app:textColor="@color/colorAccent"
+            app:textSize="20sp" />
+
+        <com.guo.lab.draw.XfermodeView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <!--<com.guo.lab.draw.CanvasView-->
         <!--android:layout_width="300dp"-->
         <!--android:layout_height="500dp" />-->
-    <!--<com.guo.lab.draw.ClockView-->
+        <!--<com.guo.lab.draw.ClockView-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="match_parent" />-->
-    <!--<com.guo.lab.draw.MaskFilterView-->
+        <!--<com.guo.lab.draw.MaskFilterView-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="match_parent" />-->
+    </LinearLayout>
 </ScrollView>
