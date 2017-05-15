@@ -1,4 +1,4 @@
-package com.guo.lab;
+package com.guo.lab.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -14,6 +14,8 @@ import android.text.TextPaint;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
+
+import com.guo.lab.R;
 
 
 /**

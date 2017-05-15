@@ -1,4 +1,4 @@
-package com.guo.lab;
+package com.guo.lab.view;
 
 import android.content.Context;
 import android.graphics.Canvas;

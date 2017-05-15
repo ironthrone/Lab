@@ -1,4 +1,4 @@
-package com.guo.lab;
+package com.guo.lab.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -8,6 +8,8 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.guo.lab.R;
 
 /**
  * Created by Administrator on 2017/3/16.

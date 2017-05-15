@@ -65,18 +65,18 @@
             android:layout_height="wrap_content"
             android:text="canvas" />
 
-        <com.guo.lab.ScrollerView
+        <com.guo.lab.view.ScrollerView
             android:layout_width="match_parent"
             android:layout_height="400dp" />
 
-        <com.guo.lab.WithACircleView
+        <com.guo.lab.view.WithACircleView
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:background="@color/colorAccent"
             android:padding="20dp"
             app:circle_color="@color/colorPrimary" />
 
-        <com.guo.lab.WithACircleView
+        <com.guo.lab.view.WithACircleView
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:background="@color/colorAccent"

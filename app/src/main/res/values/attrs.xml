@@ -13,4 +13,11 @@
         <attr name="textSize" format="dimension" />
         <attr name="textColor" format="reference" />
     </declare-styleable>
+    
+    <declare-styleable name="ProgressView">
+        <attr name="rangeWidth" format="dimension" />
+        <attr name="backgroundColor" format="reference" />
+        <attr name="progressColor" format="reference" />
+        <attr name="speed" format="integer" />
+    </declare-styleable>
 </resources>
