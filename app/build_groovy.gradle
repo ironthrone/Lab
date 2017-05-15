@@ -1,0 +1,57 @@
+apply([plugin: 'com.android.application'])
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.1"
+    defaultConfig {
+        applicationId "com.guo.lab"
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'progu+ard-rules.pro'
+        }
+    }
+}
+
+task copy(type:Copy){
+    from 'src/main'
+    into 'copy'
+}
+
+task delete(type:Delete,dependsOn : copy){
+    delete 'copy'
+}
+task greet{
+    doLast{
+        print 'hello'
+    }
+}
+
+//定义自定义任务
+class CustomTask extends DefaultTask{
+    @TaskAction
+    void doAction(){
+        logger.info("begin custom")
+        print 'customTask'
+        logger.info("end custom")
+    }
+}
+
+//构建自定义任务对象
+task custom(type:CustomTask)
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.1.0'
+    testCompile 'junit:junit:4.12'
+    compile 'com.blankj:utilcode:1.3.5'
+}
