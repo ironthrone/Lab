@@ -7,59 +7,83 @@
     android:orientation="vertical"
     tools:context="com.guo.lab.draw.CanvasActivity">
 
-    <LinearLayout
+    <com.guo.lab.view.ViewDragHelperLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <!--<com.guo.lab.draw.RoundImageView-->
-        <!--android:src="@mipmap/ic_launcher"-->
-        <!--app:radius="50dp"-->
-        <!--android:layout_width="200dp"-->
-        <!--android:layout_height="300dp" />-->
-        <com.guo.lab.view.ProgressView
-            app:progressColor="@color/colorPrimary"
-            app:backgroundColor="@color/colorAccent"
-            app:rangeWidth="4dp"
-            app:speed="3"
+        android:layout_height="match_parent">
+        <TextView
+            android:clickable="true"
             android:layout_width="100dp"
-            android:layout_height="100dp" />
-        <com.guo.lab.view.TextImageView
-           android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:image="@drawable/wusong"
-            android:padding="10dp"
-            app:text="武松"
-            app:textColor="@color/colorAccent"
-            app:textSize="20sp" />
-        <com.guo.lab.view.TextImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:image="@drawable/wusong"
-            app:text="三碗不过岗"
-            app:textColor="@color/colorAccent"
-            android:padding="10dp"
-            app:textSize="20sp" />
-        <com.guo.lab.view.TextImageView
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            app:image="@drawable/wusong"
-            app:text="三碗不过岗"
-            app:textColor="@color/colorAccent"
-            app:textSize="20sp" />
+            android:layout_height="100dp"
+            android:text="drag me"
+            android:background="@color/colorAccent"/>
+        <TextView
+            android:clickable="true"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:text="drag me,release to origin"
+            android:background="@color/colorAccent"/>
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:text="edge drag"
+            android:background="@color/colorAccent"
+            android:clickable="true"
+            />
+    </com.guo.lab.view.ViewDragHelperLayout>
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="vertical">-->
 
-        <com.guo.lab.draw.XfermodeView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-        <!--<com.guo.lab.draw.CanvasView-->
-        <!--android:layout_width="300dp"-->
-        <!--android:layout_height="500dp" />-->
-        <!--<com.guo.lab.draw.ClockView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent" />-->
-        <!--<com.guo.lab.draw.MaskFilterView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent" />-->
-    </LinearLayout>
+        <!--&lt;!&ndash;<com.guo.lab.draw.RoundImageView&ndash;&gt;-->
+        <!--&lt;!&ndash;android:src="@mipmap/ic_launcher"&ndash;&gt;-->
+        <!--&lt;!&ndash;app:radius="50dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="200dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="300dp" />&ndash;&gt;-->
+        <!---->
+        <!--<com.guo.lab.view.ProgressView-->
+            <!--app:progressColor="@color/colorPrimary"-->
+            <!--app:backgroundColor="@color/colorAccent"-->
+            <!--app:rangeWidth="4dp"-->
+            <!--app:speed="3"-->
+            <!--android:layout_width="100dp"-->
+            <!--android:layout_height="100dp" />-->
+        <!--<com.guo.lab.view.TextImageView-->
+           <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--app:image="@drawable/wusong"-->
+            <!--android:padding="10dp"-->
+            <!--app:text="武松"-->
+            <!--app:textColor="@color/colorAccent"-->
+            <!--app:textSize="20sp" />-->
+        <!--<com.guo.lab.view.TextImageView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--app:image="@drawable/wusong"-->
+            <!--app:text="三碗不过岗"-->
+            <!--app:textColor="@color/colorAccent"-->
+            <!--android:padding="10dp"-->
+            <!--app:textSize="20sp" />-->
+        <!--<com.guo.lab.view.TextImageView-->
+            <!--android:layout_width="50dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:padding="10dp"-->
+            <!--app:image="@drawable/wusong"-->
+            <!--app:text="三碗不过岗"-->
+            <!--app:textColor="@color/colorAccent"-->
+            <!--app:textSize="20sp" />-->
+
+        <!--<com.guo.lab.draw.XfermodeView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content" />-->
+        <!--&lt;!&ndash;<com.guo.lab.draw.CanvasView&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="300dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="500dp" />&ndash;&gt;-->
+        <!--&lt;!&ndash;<com.guo.lab.draw.ClockView&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="match_parent" />&ndash;&gt;-->
+        <!--&lt;!&ndash;<com.guo.lab.draw.MaskFilterView&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="match_parent" />&ndash;&gt;-->
+    <!--</LinearLayout>-->
 </ScrollView>

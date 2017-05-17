@@ -91,6 +91,7 @@ public class TextImageView extends View {
         imageBound.bottom = imageBound.top + mImage.getHeight();
         canvas.drawBitmap(mImage, null, imageBound, mPaint);
 
+        //如果宽度比文字需要的宽度小，把文字转为省略号的类型
         TextPaint textPaint = new TextPaint(mPaint);
         String truncated = mText;
         if (widthWithoutPadding < textPaint.measureText(mText, 0, mText.length())) {
