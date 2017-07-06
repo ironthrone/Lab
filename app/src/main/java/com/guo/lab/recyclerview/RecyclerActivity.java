@@ -1,4 +1,4 @@
-package com.guo.lab;
+package com.guo.lab.recyclerview;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import android.view.View;
 import com.blankj.utilcode.utils.ToastUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
+import com.guo.lab.R;
 
 import java.util.Arrays;
 import java.util.List;
