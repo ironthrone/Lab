@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:openDrawer="start">
+
+    <include
+        layout="@layout/app_bar_drawer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!--<android.support.design.widget.NavigationView-->
+    <!--android:id="@+id/nav_view"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_gravity="start"-->
+    <!--app:headerLayout="@layout/nav_header_drawer"-->
+    <!--app:menu="@menu/activity_drawer_drawer" />-->
+
+    <!--<FrameLayout-->
+        <!--android:layout_width="200dp"-->
+        <!--android:background="@color/colorAccent"-->
+        <!--android:layout_height="match_parent">-->
+
+        <ScrollView
+            android:layout_width="240dp"
+            android:layout_gravity="start"
+            android:background="@color/colorAccent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/holo_red_dark"
+                android:fitsSystemWindows="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ahah" />
+            </LinearLayout>
+        </ScrollView>
+    <!--</FrameLayout>-->
+</android.support.v4.widget.DrawerLayout>

@@ -65,6 +65,15 @@
             android:layout_height="wrap_content"
             android:text="canvas" />
 
+        <ProgressBar
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:progressDrawable="@drawable/custom_progress_drawabel"
+            android:progress="50"
+            android:secondaryProgress="80"
+            android:max="100"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
         <com.guo.lab.view.ScrollerView
             android:layout_width="match_parent"
             android:layout_height="400dp" />

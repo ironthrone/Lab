@@ -1,10 +1,13 @@
 package com.guo.lab;
 
+import android.app.Activity;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
@@ -14,10 +17,20 @@ import android.widget.RemoteViews;
 import com.guo.lab.anim.AnimatorActivity;
 import com.guo.lab.anim.LayoutAnimationActivity;
 import com.guo.lab.anim.LayoutTransitionActivity;
+import com.guo.lab.anim.RingActivity;
 import com.guo.lab.anim.SpringAnimationActivity;
+import com.guo.lab.constraint.ConstraintActivity;
 import com.guo.lab.databinding.ActivityMainBinding;
 import com.guo.lab.draw.CanvasActivity;
+import com.guo.lab.battery.TextActivity;
+import com.guo.lab.draw.ClipDrawableActivity;
+import com.guo.lab.material.DrawerActivity;
+import com.guo.lab.recyclerview.RecyclerActivity;
 import com.guo.lab.remoteview.ToastReceiver;
+import com.guo.lab.widget.ComposedViewActivity;
+import com.guo.lab.widget.DragScrollActivity;
+import com.guo.lab.widget.NewDialog;
+import com.guo.lab.widget.SlidingPanelActivity;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -28,6 +41,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+
+        toTestActivity(ComposedViewActivity.class);
+
+
+//        new NewDialog(this)
+//                .show();
+
         binding.setClickListener(this);
         findViewById(R.id.horizontal_scroll)
                 .setOnClickListener(new View.OnClickListener() {
@@ -111,6 +131,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                 });
 
+    }
+
+    private void toTestActivity(Class<? extends Activity> activityClass) {
+        startActivity(new Intent(this,activityClass));
+        finish();
     }
 
     @Override

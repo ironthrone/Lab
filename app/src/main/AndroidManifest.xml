@@ -21,7 +21,7 @@
         <activity android:name=".HorizontalPagerActivity" />
         <activity android:name=".anim.LayoutAnimationActivity" />
         <activity android:name=".anim.AnimatorActivity" />
-        <activity android:name=".RecyclerActivity" />
+        <activity android:name=".recyclerview.RecyclerActivity" />
 
         <receiver
             android:name=".remoteview.ToastReceiver"
@@ -30,7 +30,19 @@
 
         <activity android:name=".anim.SpringAnimationActivity" />
         <activity android:name=".anim.LayoutTransitionActivity" />
-        <activity android:name=".draw.CanvasActivity"></activity>
+        <activity android:name=".draw.CanvasActivity" />
+        <activity android:name=".recyclerview.ExpanableRecyclerActivity" />
+        <activity android:name=".battery.TextActivity" />
+        <activity android:name=".draw.ClipDrawableActivity" />
+        <activity android:name=".anim.RingActivity" />
+        <activity android:name=".constraint.ConstraintActivity" />
+        <activity
+            android:name=".material.DrawerActivity"
+            android:label="@string/title_activity_drawer"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".widget.DragScrollActivity" />
+        <activity android:name=".widget.SlidingPanelActivity" />
+        <activity android:name=".widget.ComposedViewActivity"></activity>
     </application>
 
 </manifest>

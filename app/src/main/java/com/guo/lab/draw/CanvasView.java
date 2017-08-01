@@ -1,14 +1,23 @@
 package com.guo.lab.draw;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.BitmapShader;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
+import android.graphics.Shader;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
+
+import com.guo.lab.R;
 
 /**
  * Created by Administrator on 2017/5/10.
@@ -18,6 +27,9 @@ public class CanvasView extends View {
 
     //paint包含着信息关于怎么绘制位图，形状，文本
     private Paint paint;
+    private BitmapShader shader;
+    private LinearGradient linearGradient;
+    private Bitmap bitmap1;
 
     public CanvasView(Context context) {
         super(context);
@@ -26,72 +38,41 @@ public class CanvasView extends View {
     public CanvasView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         paint = new Paint();
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.wusong);
+
+        Drawable light = getResources().getDrawable(R.drawable.light);
+        bitmap1 = Bitmap.createBitmap(light.getIntrinsicWidth(), light.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap1);
+        light.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+        light.draw(canvas);
+
+
+        bitmap1 = Bitmap.createScaledBitmap(bitmap1, 300, 6, true);
+
+
+        shader = new BitmapShader(bitmap, Shader.TileMode.REPEAT, Shader.TileMode.REPEAT);
+        linearGradient = new LinearGradient(0, 0, 100, 0, new int[]{0x00ffffff, Color.WHITE, 0x00ffffff},
+                null
+                , Shader.TileMode.REPEAT);
     }
 
-        RectF rectF = new RectF(100,100,800,500);
-    RectF rectF2 = new RectF(100, 600, 600, 800);
-    RectF rectF3 = new RectF(100,900,800,1100);
+
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawColor(Color.DKGRAY);
-        paint.setColor(Color.GRAY);
-        canvas.drawRect(rectF,paint);
-        paint.setColor(Color.BLUE);
-        canvas.drawArc(rectF,0,120,true,paint);
 
-        //矩形可能是不是正方形
-        paint.setColor(Color.GRAY);
-        canvas.drawRoundRect(rectF2,10,10,paint);
 
-        paint.setColor(Color.YELLOW);
-        canvas.drawOval(rectF3,paint);
-
-        //绘制线条，指定宽度
-        paint.setColor(Color.GREEN);
-        //线条结尾处的形状我半圆
-        paint.setStrokeCap(Paint.Cap.ROUND);
-        paint.setStrokeWidth(10);
-        canvas.drawLines(new float[]{100,100,800,100,
-        200,300,200,400,800,300,700,900},0,8,paint);
-
-        //paint的风格
-        paint.setColor(Color.WHITE);
-        canvas.drawCircle(500,500,200,paint);
+        Path path1 = new Path();
+        path1.moveTo(300, 300);
+        path1.rLineTo(200, 0);
+        path1.rLineTo(0, 200);
         paint.setStyle(Paint.Style.STROKE);
-        canvas.drawCircle(800,800,200,paint);
-//        canvas.drawTextOnPath("hello",);
-
-
-//        clip裁剪绘制
-//        canvas.clipRect(100, 800, 500, 1300);
-//        canvas.drawColor(Color.RED);
-//        canvas.drawCircle(200,900,400,paint);
-
-
-        //path
-        Path path = new Path();
-        path.moveTo(100,200);
-        path.lineTo(200,300);
-        path.lineTo(400,700);
-        path.lineTo(500,600);
-        path.lineTo(100,200);
-        paint.setStrokeWidth(20);
-        canvas.drawPath(path,paint);
-
-        paint.setShadowLayer(10,2,2,Color.RED);
-        canvas.drawCircle(1000,1000,200,paint);
-
-        canvas.translate(200,200);
-        canvas.drawCircle(0,0,200,paint);
-        canvas.drawLine(0,0,100,0,paint);
-//        canvas.scale(0.5f,0.6f);
-//        canvas.drawCircle(0,0,200,paint);
-        canvas.rotate(30);
-        paint.setColor(Color.RED);
-        canvas.drawLine(0,0,100,0,paint);
+        paint.setStrokeWidth(10);
         paint.setColor(Color.WHITE);
-        canvas.drawCircle(100,100,200,paint);
+        canvas.drawBitmap(bitmap1, 300, 400, null);
+        paint.setShader(linearGradient);
+        canvas.drawPath(path1, paint);
+        paint.setShader(null);
 
     }
 }

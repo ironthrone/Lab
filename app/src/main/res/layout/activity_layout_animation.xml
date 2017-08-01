@@ -4,35 +4,59 @@
     android:id="@+id/activity_layout_animation"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layoutAnimation="@anim/anim_layout"
     android:orientation="vertical"
     tools:context="com.guo.lab.anim.LayoutAnimationActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="?attr/listPreferredItemHeightSmall"
-        android:background="@color/colorAccent"
-        android:gravity="center_vertical"
-        android:text="仆固怀恩" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="click"
+        android:text="restart" />
 
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="?attr/listPreferredItemHeightSmall"
-        android:background="@color/colorAccent"
-        android:gravity="center_vertical"
-        android:text="阿史那舍尔" />
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="?attr/listPreferredItemHeightSmall"
-        android:background="@color/colorAccent"
-        android:gravity="center_vertical"
-        android:text="契苾何力" />
+        <LinearLayout
+            android:id="@+id/animated_linear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="?attr/listPreferredItemHeightSmall"
-        android:background="@color/colorAccent"
-        android:gravity="center_vertical"
-        android:text="高仙芝" />
+            <View
+                android:background="@android:color/holo_blue_bright"
+                android:layout_width="match_parent"
+                android:layout_height="1000dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="?attr/listPreferredItemHeightSmall"
+                android:background="@color/colorAccent"
+                android:gravity="center_vertical"
+                android:text="仆固怀恩" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="?attr/listPreferredItemHeightSmall"
+                android:background="@color/colorAccent"
+                android:gravity="center_vertical"
+                android:text="阿史那舍尔" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="?attr/listPreferredItemHeightSmall"
+                android:background="@color/colorAccent"
+                android:gravity="center_vertical"
+                android:text="契苾何力" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="?attr/listPreferredItemHeightSmall"
+                android:background="@color/colorAccent"
+                android:gravity="center_vertical"
+                android:text="高仙芝" />
+
+        </LinearLayout>
+
+    </ScrollView>
 </LinearLayout>
