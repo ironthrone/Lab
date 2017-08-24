@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.guo.lab.scroll.ScrollActivity">
+
+    <com.guo.lab.scroll.SpringScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!--<ScrollView-->
+        <!--android:id="@+id/scroll"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                android:foreground="@color/colorAccent"
+                android:layout_width="match_parent"
+                android:layout_height="2000dp"
+                android:background="@drawable/background_gradient" />
+            </FrameLayout>
+        <!--</ScrollView>-->
+    </com.guo.lab.scroll.SpringScrollView>
+    <!--<com.guo.lab.scroll.ScrollerView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent" />-->
+</FrameLayout>

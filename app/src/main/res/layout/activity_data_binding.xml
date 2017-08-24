@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="checkChangeListener"
+            type="android.widget.CompoundButton.OnCheckedChangeListener" />
+
+        <variable
+            name="onClickListener"
+            type="android.view.View.OnClickListener" />
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.guo.lab.databinding.DataBindingActivity">
+
+        <!--拿View的setXX()方法中的XX来做属性-->
+
+        <CheckBox
+            android:id="@+id/check"
+            app:onCheckedChangeListener="@{checkChangeListener}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:text="岳武穆"
+            app:onClickListener="@{onClickListener}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </android.support.constraint.ConstraintLayout>
+</layout>

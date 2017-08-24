@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.guo.lab.R" />
+
+        <variable
+            name="viewModel"
+            type="com.guo.lab.databinding.BindingViewModel" />
+
+        <variable
+            name="checkChangeListener"
+            type="android.widget.CompoundButton.OnCheckedChangeListener" />
+
+        <variable
+            name="onClickListener"
+            type="android.view.View.OnClickListener" />
+
+    </data>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/activity_binding"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.guo.lab.view.BindingActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:background="@{@color/colorPrimary}"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:onCheckedChangeListener="@{checkChangeListener}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="岳武穆"
+                app:onClickListener="@{onClickListener}" />
+
+
+            <!--根据setter 扩展的属性-->
+            <Button
+                android:id="@+id/custom_observable_object"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="customObservableObject"
+                app:onClickListener="@{viewModel::onClick}" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.observableBookField.name}"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text='@{"Observable object: " + viewModel.observableBook.name}'
+
+                android:textSize="16sp" />
+
+
+            <Button
+                android:id="@+id/get_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="get_edit_text"
+                app:onClickListener="@{viewModel::onClick}" />
+
+            <!--toggle visibility-->
+            <View
+                android:layout_width="match_parent"
+                android:background="@color/colorAccent"
+                android:layout_height="10dp" />
+            <Button
+                android:id="@+id/toggleVisible"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{viewModel::onClick}"
+                android:text="toggleVisible" />
+
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@mipmap/ic_launcher"
+                android:visibility="@{viewModel.androidVisibility}"
+                app:imageAlpha="@{100}" />
+
+
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="@{viewModel.observableWord}"
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/colorAccent" />
+
+            <Button
+                android:text="observableMap"
+                android:id="@+id/observable_map"
+                android:onClick="@{viewModel::onClick}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="ObservableArrayMap"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text='@{viewModel.observableArrayMap["name"]}'
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text='@{viewModel.observableArrayMap["weapon"]}'
+                android:textSize="16sp" />
+
+
+        </LinearLayout>
+    </ScrollView>
+</layout>

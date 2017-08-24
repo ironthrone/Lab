@@ -11,6 +11,8 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.ScaleAnimation;
+import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 
 import com.guo.lab.R;
@@ -27,6 +29,8 @@ public class RingActivity extends AppCompatActivity {
     private ObjectAnimator compareAnim;
     private BatteryView batteryView;
     private ChargingStageBackgroundView chargingStageBackgroundView;
+    private Button compare;
+    private HomeRingView homeRingView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +52,7 @@ public class RingActivity extends AppCompatActivity {
 
         endAnim.setRepeatCount(ValueAnimator.INFINITE);
 
-        Button compare = (Button) findViewById(R.id.compare);
+        compare = (Button) findViewById(R.id.compare);
         compareAnim = ObjectAnimator.ofPropertyValuesHolder(compare, yHolder)
                 .setDuration(2000);
 
@@ -75,6 +79,7 @@ public class RingActivity extends AppCompatActivity {
         });
         batteryView = ((BatteryView) findViewById(R.id.battery));
         batteryView.setBatteryLevel(80);
+        homeRingView = (HomeRingView) findViewById(R.id.home_ring);
 
         chargingStageBackgroundView = ((ChargingStageBackgroundView) findViewById(R.id.charge));
     }
@@ -92,6 +97,7 @@ public class RingActivity extends AppCompatActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.start:
+                homeRingView.setDuration(2000).start();
                 ObjectAnimator bottomAnim = ObjectAnimator.ofInt(end, "bottom", end.getBottom(), end.getBottom() + 1)
                         .setDuration(2000);
                 ObjectAnimator scaleXAnim = ObjectAnimator.ofFloat(end, "scaleY", 1, 2)
@@ -108,6 +114,12 @@ public class RingActivity extends AppCompatActivity {
                 ((GradientAnimView) findViewById(R.id.gradient)).changeTo(Color.GREEN,Color.BLUE);
 
                 chargingStageBackgroundView.activate();
+
+
+                TranslateAnimation translateAnimation = new TranslateAnimation(0, 0, 0, 100);
+                translateAnimation.setDuration(2000);
+                translateAnimation.setFillAfter(true);
+                compare.startAnimation(translateAnimation);
 //                compareAnim.addListener(new RepeatListener(compareAnim,5));
 //                compareAnim.start();
 //                endAnim.start();
@@ -118,6 +130,12 @@ public class RingActivity extends AppCompatActivity {
 //                ringProgressView.start();
                 break;
             case R.id.end:
+                homeRingView.start();
+//                ScaleAnimation scaleAnimation = new ScaleAnimation(1, 1, 1, 2);
+//                scaleAnimation.setDuration(2000);
+//                compare.startAnimation(scaleAnimation);
+
+                compare.clearAnimation();
                 chargingStageBackgroundView.deactivate();
                 ringProgressView.end();
                 batteryView.endCharging();

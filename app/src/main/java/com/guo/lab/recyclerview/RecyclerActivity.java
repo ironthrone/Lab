@@ -1,99 +1,119 @@
 package com.guo.lab.recyclerview;
 
-import android.support.v7.app.AppCompatActivity;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
-import com.blankj.utilcode.utils.ToastUtils;
-import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.BaseViewHolder;
+import com.blankj.utilcode.utils.Utils;
 import com.guo.lab.R;
+import com.guo.lab.databinding.ActivityRecyclerBinding;
+import com.guo.lab.databinding.ItemHeroBinding;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-
-import rx.Observable;
-import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action1;
-import rx.schedulers.Schedulers;
+import java.util.Random;
 
 
-public class RecyclerActivity extends AppCompatActivity implements BaseQuickAdapter.RequestLoadMoreListener, BaseQuickAdapter.OnItemClickListener {
+public class RecyclerActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private String[] heros = {"武松", "林冲", "鲁达", "张清", "武松", "林冲", "鲁达", "张清", "武松", "林冲", "鲁达", "张清", "武松", "林冲", "鲁达", "张清", "武松", "林冲", "鲁达", "张清"};
-    private List<String> heroList;
+    private String[] heros = {"武松", "林冲", "鲁达", "张清", "武松", "林冲", "鲁达", "张清", "武松",
+            "林冲", "鲁达", "张清", "武松", "林冲", "鲁达", "张清", "武松", "林冲", "鲁达", "张清"};
+    private List<String> heroList = new ArrayList<>();
+    private ActivityRecyclerBinding binding;
+    private RecyclerView.Adapter mAdapter;
 
-    {
-        heroList = Arrays.asList(heros);
-    }
-
-    BaseQuickAdapter<String, BaseViewHolder> mAdapter = new BaseQuickAdapter<String, BaseViewHolder>(android.R.layout.simple_list_item_1, heroList) {
-        @Override
-        protected void convert(BaseViewHolder helper, String item) {
-            helper.setText(android.R.id.text1, item);
-        }
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler);
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.list);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_recycler);
+        binding.setClick(this);
 
-        mAdapter.setOnLoadMoreListener(this, recyclerView);
-        mAdapter.setOnItemClickListener(this);
-        recyclerView.setAdapter(mAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        for (int i = 0; i < heros.length; i++) {
+            heroList.add(heros[i]);
+        }
+        mAdapter = new HeroAdapter(heroList);
+        binding.recycler.setAdapter(mAdapter);
+        binding.recycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        binding.recycler.addItemDecoration(new DividerItemDecoration(getApplicationContext(), LinearLayoutManager.VERTICAL));
+//        binding.recycler.setItemAnimator(new DefaultItemAnimator());
+
     }
 
 
     @Override
-    public void onLoadMoreRequested() {
+    public void onClick(View v) {
+        Random random = new Random();
 
-        Observable.create(new Observable.OnSubscribe<Object>() {
-            @Override
-            public void call(Subscriber<? super Object> subscriber) {
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                subscriber.onCompleted();
+        switch (v.getId()) {
+            case R.id.add: {
+                int position = random.nextInt(heros.length);
+                heroList.add(Math.min(heroList.size(), position), heros[position]);
+                mAdapter.notifyItemInserted(position);
+
             }
-        })
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<Object>() {
-                    @Override
-                    public void onCompleted() {
-
-                        //loadMoreComplete()不会隐藏loadmore view,true的意思是隐藏
-                        mAdapter.loadMoreEnd(true);
-                        ToastUtils.showShortToastSafe("Load more");
-
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-
-                    }
-
-                    @Override
-                    public void onNext(Object o) {
-
-                    }
-
-                });
-
-
+            break;
+            case R.id.move: {
+                int size = heroList.size();
+                if (size < 2) return;
+                int from = random.nextInt(size);
+                int to = random.nextInt(size);
+                mAdapter.notifyItemMoved(from, to);
+            }
+            break;
+            case R.id.remove:
+                int position = random.nextInt(mAdapter.getItemCount());
+                heroList.remove(position);
+                mAdapter.notifyItemRemoved(position);
+                break;
+        }
     }
 
-    @Override
-    public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-        ToastUtils.showShortToastSafe(adapter.getItem(position).toString());
+    static class HeroAdapter extends RecyclerView.Adapter<HeroAdapter.HeroViewHolder> {
+
+        private List<String> data;
+
+        public HeroAdapter(List<String> data) {
+            this.data = data;
+        }
+
+        @Override
+        public HeroViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            ItemHeroBinding binding = DataBindingUtil.inflate(LayoutInflater.from(Utils.getContext()), R.layout.item_hero, parent, false);
+            HeroViewHolder holder = new HeroViewHolder(binding.getRoot());
+            holder.heroText = binding.hero;
+
+            return holder;
+        }
+
+        @Override
+        public void onBindViewHolder(HeroViewHolder holder, int position) {
+            holder.heroText.setText(data.get(position));
+        }
+
+        @Override
+        public int getItemCount() {
+
+            return data.size();
+        }
+
+        class HeroViewHolder extends RecyclerView.ViewHolder {
+
+            TextView heroText;
+
+            public HeroViewHolder(View itemView) {
+                super(itemView);
+            }
+
+        }
     }
+
 }

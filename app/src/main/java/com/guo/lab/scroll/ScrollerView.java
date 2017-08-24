@@ -1,4 +1,4 @@
-package com.guo.lab.view;
+package com.guo.lab.scroll;
 
 import android.content.Context;
 import android.graphics.Canvas;

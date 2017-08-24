@@ -80,7 +80,46 @@
                 android:layout_width="300dp"
                 android:layout_height="300dp" />
 
+
+            <com.guo.lab.anim.HomeRingView
+                android:id="@+id/home_ring"
+                android:layout_width="300dp"
+                android:layout_height="300dp" />
+
+            <com.guo.lab.anim.CrossView
+                android:id="@+id/dont_know"
+                android:layout_width="200dp"
+                android:layout_height="200dp" />
         </FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+
+            <View
+                android:id="@+id/block"
+                android:background="@android:color/holo_green_dark"
+                android:layout_width="100dp"
+                android:layout_height="100dp" />
+
+            <View
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/block"
+                android:layout_toLeftOf="@+id/right"
+                android:layout_weight="1"
+                android:layout_marginLeft="-10dp"
+                android:background="@android:color/holo_red_dark"
+                android:layout_width="100dp"
+                android:layout_marginRight="-10dp"
+                android:layout_height="100dp" />
+
+            <View
+                android:id="@+id/right"
+                android:layout_alignParentRight="true"
+                android:background="@android:color/holo_green_dark"
+                android:layout_width="100dp"
+                android:layout_height="100dp" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"

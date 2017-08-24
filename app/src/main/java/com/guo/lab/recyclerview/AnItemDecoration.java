@@ -55,7 +55,7 @@ public class AnItemDecoration extends RecyclerView.ItemDecoration {
         final int childCount = parent.getChildCount();
         for (int i = 0; i < childCount; i++) {
             final View child = parent.getChildAt(i);
-            int adapterPosition = parent.getChildAdapterPosition(child);
+            int adapterPosition = parent.getChildLayoutPosition(child);
             int type = parent.getAdapter().getItemViewType(adapterPosition);
             // 拿到当前view的装饰区域
             parent.getDecoratedBoundsWithMargins(child, mBounds);

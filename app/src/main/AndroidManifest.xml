@@ -2,6 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.guo.lab">
 
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="androzid.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+
+    <!--define custom permission -->
+    <permission
+        android:name="Hello"
+        android:protectionLevel="dangerous" />
+    <permission-group android:name="Hello_Group" />
+
+
     <application
         android:name=".LabApplication"
         android:allowBackup="true"
@@ -42,7 +54,14 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".widget.DragScrollActivity" />
         <activity android:name=".widget.SlidingPanelActivity" />
-        <activity android:name=".widget.ComposedViewActivity"></activity>
+        <activity android:name=".widget.ComposedViewActivity" />
+        <activity android:name=".databinding.DataBindingActivity" />
+        <activity android:name=".lottie.LottieActivity" />
+        <activity android:name=".dimention.DimensionActivity" />
+        <activity android:name=".scroll.ScrollActivity" />
+        <activity android:name=".permission.PermissionActivity"></activity>
+        <activity android:name=".databinding.BindingActivity" />
+        <activity android:name=".databinding.ListBindingActivity" />
     </application>
 
 </manifest>
