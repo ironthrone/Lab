@@ -1,5 +1,8 @@
 package com.guo.lab;
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
+import android.animation.ValueAnimator;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.util.Log;
@@ -10,6 +13,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.List;
 
 import static android.R.attr.width;
 
@@ -131,6 +135,22 @@ public class Toolbox {
             } catch (IOException e) {
                 e.printStackTrace();
                 return null;
+            }
+        }
+    }
+
+
+    public static void removeAllListener(Animator animator) {
+        if (animator == null) return;
+        if (animator instanceof AnimatorSet) {
+            List<Animator> childs = ((AnimatorSet) animator).getChildAnimations();
+            for (Animator child : childs) {
+                removeAllListener(child);
+            }
+        } else {
+            animator.removeAllListeners();
+            if (animator instanceof ValueAnimator) {
+                ((ValueAnimator) animator).removeAllUpdateListeners();
             }
         }
     }

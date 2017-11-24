@@ -7,7 +7,7 @@ import android.view.MotionEvent;
 import android.view.TouchDelegate;
 import android.view.View;
 
-import com.blankj.utilcode.utils.ToastUtils;
+import com.blankj.utilcode.util.ToastUtils;
 import com.guo.lab.R;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 import com.sothree.slidinguppanel.ViewDragHelper;
@@ -109,13 +109,13 @@ public class SlidingPanelActivity extends AppCompatActivity implements View.OnCl
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.text:
-                ToastUtils.showShortToast("text is clicked");
+                ToastUtils.showShortSafe("text is clicked");
 
 //                slidePanelTo(a);
 //                a += 100;
                 break;
             case R.id.panel:
-                ToastUtils.showShortToast("sliding panel is clicked");
+                ToastUtils.showShortSafe("sliding panel is clicked");
                 break;
         }
     }

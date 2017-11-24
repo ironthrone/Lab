@@ -16,7 +16,7 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.blankj.utilcode.utils.SizeUtils;
+import com.blankj.utilcode.util.SizeUtils;
 import com.guo.lab.R;
 import com.guo.lab.Toolbox;
 
@@ -55,8 +55,8 @@ public class BroadcastView extends View {
         }
         ringColor = Color.RED;
         paint = new Paint();
-        paint.setAntiAlias(true);
-        paint.setDither(true);
+//        paint.setAntiAlias(true);
+//        paint.setDither(true);
         paint.setColor(Color.RED);
         paint.setStyle(Paint.Style.STROKE);
 
@@ -115,6 +115,8 @@ public class BroadcastView extends View {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 invalidate();
+//                postInvalidateOnAnimation();
+//                postInvalidate();
             }
         });
         invalidater.setRepeatCount(repeatCount);
@@ -144,8 +146,7 @@ public class BroadcastView extends View {
             for (Ring ring :
                     rings) {
                 paint.setStrokeWidth(ring.width);
-                int color = Toolbox.addAlpha(ring.color, ring.alpha);
-                paint.setColor(color);
+                paint.setAlpha((int) (255 * ring.alpha));
                 canvas.drawCircle(centerX, centerY, ring.radius, paint);
             }
         }

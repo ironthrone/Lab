@@ -5,7 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.os.Handler;
 import android.os.Message;
 
-import com.blankj.utilcode.utils.LogUtils;
+import com.blankj.utilcode.util.LogUtils;
 
 import java.util.List;
 

@@ -18,7 +18,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 
 
-import com.blankj.utilcode.utils.ScreenUtils;
+import com.blankj.utilcode.util.ScreenUtils;
 import com.guo.lab.R;
 
 import java.util.ArrayList;

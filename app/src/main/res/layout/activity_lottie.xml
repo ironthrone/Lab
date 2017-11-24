@@ -25,18 +25,19 @@
             android:text="start" />
 
         <com.airbnb.lottie.LottieAnimationView
-
             android:id="@+id/battery"
             android:layout_width="200dp"
-            android:layout_height="100dp"
-            app:lottie_fileName="battery_fill.json"
+            android:layout_height="200dp"
+            app:lottie_fileName="battery_.json"
+            app:lottie_autoPlay="true"
             app:lottie_scale="3" />
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/lottie_1"
             android:layout_width="200dp"
             android:layout_height="200dp"
-            app:lottie_fileName="ligtning.json" />
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="max_power_home.json" />
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/lottie_2"

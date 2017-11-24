@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CompoundButton;
 
-import com.blankj.utilcode.utils.ToastUtils;
+import com.blankj.utilcode.util.ToastUtils;
 import com.guo.lab.R;
 
 public class DataBindingActivity extends AppCompatActivity
@@ -23,12 +23,12 @@ public class DataBindingActivity extends AppCompatActivity
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        ToastUtils.showShortToast("clicked");
+        ToastUtils.showShortSafe("clicked");
     }
 
     @Override
     public void onClick(View v) {
-        ToastUtils.showShortToast("onClick");
+        ToastUtils.showShortSafe("onClick");
 
     }
 }

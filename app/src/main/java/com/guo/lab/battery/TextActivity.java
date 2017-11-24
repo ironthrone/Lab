@@ -1,9 +1,13 @@
 package com.guo.lab.battery;
 
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.BatteryManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.guo.lab.R;
 
 import java.util.concurrent.TimeUnit;
@@ -33,5 +37,13 @@ public class TextActivity extends AppCompatActivity {
                 })
                 .subscribe();
 
+        //viscous broadcast
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(Intent.ACTION_BATTERY_CHANGED);
+
+        Intent intent = registerReceiver(null, intentFilter);
+        int level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, 0);
+        String material = intent.getStringExtra(BatteryManager.EXTRA_TECHNOLOGY);
+        ToastUtils.showShortSafe("level: "+ level + " technology: " + material);
     }
 }

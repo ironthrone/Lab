@@ -9,7 +9,7 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.blankj.utilcode.utils.SizeUtils;
+import com.blankj.utilcode.util.SizeUtils;
 import com.guo.lab.Toolbox;
 
 /**
@@ -35,12 +35,18 @@ public class CrossView extends View {
         paint.setStrokeWidth(width);
         paint.setColor(lineColor);
         paint.setStyle(Paint.Style.STROKE);
+        setLayerType(LAYER_TYPE_NONE,null);
     }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         int[] specs = Toolbox.measureView(this, widthMeasureSpec, heightMeasureSpec);
         super.onMeasure(specs[0], specs[0]);
+    }
+
+    @Override
+    public void draw(Canvas canvas) {
+        super.draw(canvas);
     }
 
     @Override

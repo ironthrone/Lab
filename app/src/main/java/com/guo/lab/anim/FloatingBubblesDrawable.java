@@ -14,8 +14,8 @@ import android.support.annotation.Nullable;
 import android.view.Choreographer;
 import android.view.View;
 
-import com.blankj.utilcode.utils.LogUtils;
-import com.blankj.utilcode.utils.SizeUtils;
+import com.blankj.utilcode.util.LogUtils;
+import com.blankj.utilcode.util.SizeUtils;
 import com.guo.lab.Toolbox;
 
 import java.util.ArrayList;

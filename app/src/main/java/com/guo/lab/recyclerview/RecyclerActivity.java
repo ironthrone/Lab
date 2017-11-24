@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.blankj.utilcode.utils.Utils;
+import com.blankj.utilcode.util.Utils;
 import com.guo.lab.R;
 import com.guo.lab.databinding.ActivityRecyclerBinding;
 import com.guo.lab.databinding.ItemHeroBinding;

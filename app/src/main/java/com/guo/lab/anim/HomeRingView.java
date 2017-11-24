@@ -20,8 +20,8 @@ import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.PathInterpolator;
 
-import com.blankj.utilcode.utils.LogUtils;
-import com.blankj.utilcode.utils.SizeUtils;
+import com.blankj.utilcode.util.LogUtils;
+import com.blankj.utilcode.util.SizeUtils;
 import com.guo.lab.Toolbox;
 
 /**

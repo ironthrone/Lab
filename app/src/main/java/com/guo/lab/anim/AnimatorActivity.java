@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.widget.ImageView;
 
-import com.blankj.utilcode.utils.ToastUtils;
+import com.blankj.utilcode.util.ToastUtils;
 import com.guo.lab.R;
 
 public class AnimatorActivity extends AppCompatActivity implements View.OnClickListener {
@@ -138,7 +138,7 @@ public class AnimatorActivity extends AppCompatActivity implements View.OnClickL
                 scale1.addListener(new Animator.AnimatorListener() {
                     @Override
                     public void onAnimationStart(Animator animation) {
-                        ToastUtils.showShortToastSafe(System.currentTimeMillis() + "");
+                        ToastUtils.showShortSafe(System.currentTimeMillis() + "");
 
                     }
 
@@ -186,7 +186,7 @@ public class AnimatorActivity extends AppCompatActivity implements View.OnClickL
         imageView.postOnAnimation(new Runnable() {
             @Override
             public void run() {
-                ToastUtils.showShortToastSafe("post");
+                ToastUtils.showShortSafe("post");
             }
         });
 

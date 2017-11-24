@@ -17,53 +17,6 @@
         android:orientation="vertical"
         tools:context="com.guo.lab.MainActivity">
 
-        <Button
-            android:id="@+id/horizontal_scroll"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="horizontalscroll" />
-
-
-
-        <Button
-            android:id="@+id/remote_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="remoteView" />
-
-        <Button
-            android:id="@+id/recycler"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="recycler" />
-        <Button
-            android:id="@+id/layout_animation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="layoutanimation" />
-        <Button
-            android:id="@+id/layout_transition"
-            android:onClick="@{clickListener}"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="layouttransition" />
-
-        <Button
-            android:id="@+id/property_animator"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="PropertyAnimator" />
-
-        <Button
-            android:id="@+id/spring_animation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="springanimation" />
-        <Button
-            android:id="@+id/canvas"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="canvas" />
 
         <ProgressBar
             style="@style/Widget.AppCompat.ProgressBar.Horizontal"
@@ -74,21 +27,5 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <com.guo.lab.scroll.ScrollerView
-            android:layout_width="match_parent"
-            android:layout_height="400dp" />
-
-        <com.guo.lab.view.WithACircleView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="@color/colorAccent"
-            android:padding="20dp"
-            app:circle_color="@color/colorPrimary" />
-
-        <com.guo.lab.view.WithACircleView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="@color/colorAccent"
-            app:circle_color="@color/colorPrimary" />
     </LinearLayout>
 </layout>

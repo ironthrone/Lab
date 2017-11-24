@@ -3,7 +3,7 @@ package com.guo.lab.databinding;
 import android.view.View;
 import android.widget.TextView;
 
-import com.blankj.utilcode.utils.ToastUtils;
+import com.blankj.utilcode.util.ToastUtils;
 
 /**
  * Created by Administrator on 2017/3/17.
@@ -18,6 +18,6 @@ public class TextViewModel {
 
 
     public void echo(View view) {
-        ToastUtils.showShortToastSafe(((TextView)view).getText().toString());
+        ToastUtils.showShortSafe(((TextView)view).getText().toString());
     }
 }

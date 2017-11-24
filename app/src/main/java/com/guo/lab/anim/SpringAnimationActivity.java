@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.blankj.utilcode.utils.ToastUtils;
+import com.blankj.utilcode.util.ToastUtils;
 import com.guo.lab.R;
 
 public class SpringAnimationActivity extends AppCompatActivity implements View.OnClickListener, DynamicAnimation.OnAnimationUpdateListener, DynamicAnimation.OnAnimationEndListener {
@@ -71,11 +71,11 @@ public class SpringAnimationActivity extends AppCompatActivity implements View.O
         //也可以直接设置hook的属性
         hook.setTranslationY(value);
         hook.invalidate();
-        ToastUtils.showShortToastSafe(String.format("value: %f,velocity: %f", value, velocity));
+        ToastUtils.showShortSafe(String.format("value: %f,velocity: %f", value, velocity));
     }
 
     @Override
     public void onAnimationEnd(DynamicAnimation animation, boolean canceled, float value, float velocity) {
-        ToastUtils.showShortToastSafe(String.format("value: %f,velocity: %f", value, velocity));
+        ToastUtils.showShortSafe(String.format("value: %f,velocity: %f", value, velocity));
     }
 }

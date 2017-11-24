@@ -5,6 +5,7 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
     <include
@@ -21,28 +22,29 @@
     <!--app:menu="@menu/activity_drawer_drawer" />-->
 
     <!--<FrameLayout-->
-        <!--android:layout_width="200dp"-->
-        <!--android:background="@color/colorAccent"-->
-        <!--android:layout_height="match_parent">-->
+    <!--android:layout_width="200dp"-->
+    <!--android:background="@color/colorAccent"-->
+    <!--android:layout_height="match_parent">-->
 
-        <ScrollView
-            android:layout_width="240dp"
-            android:layout_gravity="start"
-            android:background="@color/colorAccent"
-            android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/colorAccent"
+        android:fitsSystemWindows="false"
+        >
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@android:color/holo_red_dark"
-                android:fitsSystemWindows="true"
-                android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_red_dark"
+            android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="ahah" />
-            </LinearLayout>
-        </ScrollView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ahah" />
+        </LinearLayout>
+    </ScrollView>
     <!--</FrameLayout>-->
 </android.support.v4.widget.DrawerLayout>

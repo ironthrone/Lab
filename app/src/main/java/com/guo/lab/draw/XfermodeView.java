@@ -12,8 +12,7 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
-import java.io.File;
-import java.nio.channels.FileChannel;
+import com.guo.lab.Toolbox;
 
 /**
  * Created by Administrator on 2017/5/10.
@@ -27,7 +26,7 @@ public class XfermodeView extends View {
     private Paint paint;
 
     public XfermodeView(Context context) {
-        super(context);
+        this(context, null);
     }
 
     public XfermodeView(Context context, @Nullable AttributeSet attrs) {
@@ -36,19 +35,16 @@ public class XfermodeView extends View {
         dst = getDst(100);
         src = getSrc(100, 100);
 
-
+        setLayerType(View.LAYER_TYPE_SOFTWARE, null);
     }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int desireSpec = MeasureSpec.makeMeasureSpec(4000, MeasureSpec.EXACTLY);
-        //scroll指定的高度模式是Unspecfied，导致出现measuredHeight为0
-        super.onMeasure(widthMeasureSpec, desireSpec);
-    }
-
-    @Override
-    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
-        super.onLayout(changed, left, top, right, bottom);
+//        int desireSpec = MeasureSpec.makeMeasureSpec(4000, MeasureSpec.EXACTLY);
+//        //scroll指定的高度模式是Unspecfied，导致出现measuredHeight为0
+//        setMeasuredDimension(widthMeasureSpec, desireSpec);
+        int[] measured = Toolbox.measureView(this, widthMeasureSpec, heightMeasureSpec);
+        setMeasuredDimension(measured[0], measured[1]);
     }
 
     @Override
@@ -56,9 +52,7 @@ public class XfermodeView extends View {
         super.onDraw(canvas);
 
         //同样的不支持硬件加速
-        //TODO 但是不注释掉这一句，就没有内容显示，好奇快
 
-//        setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         paint.setFilterBitmap(false);
         paint.setDither(false);
 
@@ -72,14 +66,17 @@ public class XfermodeView extends View {
         canvas.drawBitmap(src, 100, 0, paint);
         canvas.drawText("src", 240, 0, paint);
 
-        //TODO 有bug，和期望的显示不一样
         for (PorterDuff.Mode mode : PorterDuff.Mode.values()) {
-            canvas.translate(0, 160);
+            //在上面离屏bitmap（an offscreen bitmap.）上绘制
+            int layer = canvas.saveLayer(new RectF(0,0,getRight(),getBottom()),paint,Canvas.ALL_SAVE_FLAG);
+            canvas.translate(0, 160 * mode.ordinal());
+
             canvas.drawBitmap(dst, 100, 0, paint);
             paint.setXfermode(new PorterDuffXfermode(mode));
             canvas.drawBitmap(src, 150, 50, paint);
             paint.setXfermode(null);
             canvas.drawText(mode.name(), 300, 0, paint);
+            canvas.restoreToCount(layer);
         }
     }
 

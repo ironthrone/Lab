@@ -16,7 +16,7 @@ import android.view.View;
 import android.view.animation.Interpolator;
 
 
-import com.blankj.utilcode.utils.SizeUtils;
+import com.blankj.utilcode.util.SizeUtils;
 import com.guo.lab.R;
 import com.guo.lab.Toolbox;
 

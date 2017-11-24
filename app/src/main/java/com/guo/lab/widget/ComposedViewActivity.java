@@ -4,7 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.blankj.utilcode.utils.ToastUtils;
+import com.blankj.utilcode.util.ToastUtils;
 import com.guo.lab.R;
 
 public class ComposedViewActivity extends AppCompatActivity {
@@ -17,7 +17,7 @@ public class ComposedViewActivity extends AppCompatActivity {
                 .setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        ToastUtils.showShortToast("afdasdfasfas");
+                        ToastUtils.showShortSafe("afdasdfasfas");
                     }
                 });
     }

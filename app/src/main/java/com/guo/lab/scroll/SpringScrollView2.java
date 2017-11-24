@@ -9,7 +9,7 @@ import android.view.VelocityTracker;
 import android.view.View;
 import android.widget.ScrollView;
 
-import com.blankj.utilcode.utils.SizeUtils;
+import com.blankj.utilcode.util.SizeUtils;
 
 /**
  * Created by ironthrone on 2017/8/14 0014.

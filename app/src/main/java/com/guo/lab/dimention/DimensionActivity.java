@@ -4,8 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.blankj.utilcode.utils.ScreenUtils;
-import com.blankj.utilcode.utils.SizeUtils;
+import com.blankj.utilcode.util.ScreenUtils;
+import com.blankj.utilcode.util.SizeUtils;
 import com.guo.lab.R;
 
 public class DimensionActivity extends AppCompatActivity {

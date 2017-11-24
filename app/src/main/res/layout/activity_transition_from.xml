@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_bright"
+    tools:context="com.guo.lab.transition.TransitionFromActivity">
+
+
+    <ImageView
+        android:src="@drawable/wusong"
+        android:id="@+id/share"
+        android:layout_width="50dp"
+        android:layout_height="50dp" />
+    <Button
+        android:text="Switch"
+        android:id="@+id/switch_to"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:text="clear"
+        android:id="@+id/clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <!--<FrameLayout-->
+        <!--android:layout_width=""-->
+        <!--android:layout_height=""></FrameLayout>-->
+    <View
+        android:id="@+id/image"
+        android:background="@color/colorAccent"
+        android:layout_width="match_parent"
+        android:layout_margin="8dp"
+        android:layout_height="100dp" />
+</LinearLayout>

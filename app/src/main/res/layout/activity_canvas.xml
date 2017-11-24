@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:background="@android:color/darker_gray"
     tools:context="com.guo.lab.draw.CanvasActivity">
 
     <!--<com.guo.lab.view.ViewDragHelperLayout-->
@@ -72,10 +73,18 @@
             <!--app:text="三碗不过岗"-->
             <!--app:textColor="@color/colorAccent"-->
             <!--app:textSize="20sp" />-->
+        <!--<com.guo.lab.draw.AView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="4000dp" />-->
 
         <com.guo.lab.draw.XfermodeView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="500dp" />
+
+        <!--<View-->
+            <!--android:background="@android:color/holo_red_dark"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="4000dp" />-->
         <!--&lt;!&ndash;<com.guo.lab.draw.CanvasView&ndash;&gt;-->
         <!--&lt;!&ndash;android:layout_width="300dp"&ndash;&gt;-->
         <!--&lt;!&ndash;android:layout_height="500dp" />&ndash;&gt;-->
