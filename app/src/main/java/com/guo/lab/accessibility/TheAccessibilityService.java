@@ -2,6 +2,9 @@ package com.guo.lab.accessibility;
 
 import android.accessibilityservice.AccessibilityService;
 import android.accessibilityservice.AccessibilityServiceInfo;
+import android.content.Intent;
+import android.net.Uri;
+import android.provider.Settings;
 import android.view.KeyEvent;
 import android.view.accessibility.AccessibilityEvent;
 
@@ -15,6 +18,14 @@ import com.blankj.utilcode.util.ToastUtils;
 public class TheAccessibilityService extends AccessibilityService {
     private static final String TAG = TheAccessibilityService.class.getSimpleName();
 
+    public static TheAccessibilityService instance;
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        instance = this;
+    }
+
     @Override
     protected void onServiceConnected() {
         super.onServiceConnected();
@@ -25,6 +36,15 @@ public class TheAccessibilityService extends AccessibilityService {
         LogUtils.d(TAG, "accessibility connected");
     }
 
+    public void startA() {
+        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+        intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        intent.setData(Uri.parse("package:" + getPackageName()));
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {
         ToastUtils.showLongSafe(event.toString());

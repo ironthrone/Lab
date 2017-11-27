@@ -5,7 +5,9 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.graphics.PixelFormat;
+import android.net.Uri;
 import android.os.Build;
+import android.os.Handler;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,6 +22,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.blankj.utilcode.util.LogUtils;
+import com.blankj.utilcode.util.ToastUtils;
 import com.guo.lab.R;
 import com.guo.lab.view.SomeViewAttrsActivity;
 
@@ -63,9 +66,10 @@ public class WindowActivity extends AppCompatActivity {
         view.setBackgroundColor(0xbbff0000);
         layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT;
         layoutParams.height = ViewGroup.LayoutParams.MATCH_PARENT;
-        layoutParams.type = WindowManager.LayoutParams.TYPE_TOAST;
+        layoutParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            layoutParams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS | WindowManager.LayoutParams.FLAG_FULLSCREEN;
+            layoutParams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
+                | WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS | WindowManager.LayoutParams.FLAG_FULLSCREEN;
         } else {
             layoutParams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
         }
@@ -97,6 +101,25 @@ public class WindowActivity extends AppCompatActivity {
 
 //        startActivity(new Intent(this, SomeViewAttrsActivity.class));
 
+        new Handler()
+            .postDelayed(new Runnable() {
+                @Override
+                public void run() {
+//                    Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+//                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+//                    intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+//                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+//                    intent.setData(Uri.parse("package:" + getPackageName()));
+//                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+//                    getApplicationContext().startActivity(intent);
+                    if (TheAccessibilityService.instance != null) {
+                        TheAccessibilityService.instance.startA();
+                    } else {
+                        ToastUtils.showLong("is null");
+                    }
+                }
+            }, 1000);
     }
 
     @Override

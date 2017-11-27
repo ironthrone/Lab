@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 //        android.provider.Settings.System.putInt(getContentResolver(), android.provider.Settings.System.SCREEN_BRIGHTNESS,
 //                12);
 
-        toTestActivity(TransitionFromActivity.class);
+        toTestActivity(WindowActivity.class);
 
 
 //        new NewDialog(this)
